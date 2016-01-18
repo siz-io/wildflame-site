@@ -170,6 +170,15 @@ section {
   margin: auto;
 }
 
+.icon.map {
+  width: 80px;
+}
+
+.icon.chart {
+  width: 80px;
+}
+
+
 .l, .r {
   display: inline-block;
   width: 49%;
@@ -323,7 +332,9 @@ p {
   margin: auto;
 }
 
-.icon-chart {
+.icon-http://uploaded.net/file/t8lhlpoj
+
+ {
   display: block;
   width: 100px;
   margin: auto;
@@ -463,14 +474,14 @@ h3 {
 
 .left .picture {
   padding-left: 90px;
-  width: 500px;
+  width: 450px;
   margin: auto;
   margin-top: 30px;
 }
 
 .chart-big {
   padding-left: 90px;
-  width: 550px;
+  width: 500px;
   margin: auto;
   margin-top: 30px;
 }
@@ -590,7 +601,17 @@ h3 {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1150px) {
+  .left .l .fat.white, .right .l .fat.white, .left .l .fat-sub, .right .l .fat-sub { 
+    margin-left: 25%;
+  }
+}
+
+@media (max-width: 1061px) {
+  .left .l .fat.white, .right .l .fat.white, .left .l .fat-sub, .right .l .fat-sub { 
+    margin-left: 15%;
+  }
+
   .grey .cesar {
     margin-left: 10%;
   }
