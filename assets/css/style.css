@@ -578,27 +578,27 @@ h3 {
   }
 
   .left .picture {
-    width: 60%;
+    width: 65%;
+    padding-left: 170px;
   }
   .chart-big {
     width: 60%;
     margin: auto;
+    padding-left: 60px;
   }
 
   .left a, .right a {
     padding-left: 0;
-    width: 77%;
-    margin: auto;
     margin-top: 20px;
     display: block;
     text-align: center;
     color: #595959;
-    margin-left: 45px; 
-    margin-bottom: 100px;
+    margin-left: 160px; 
+    margin-bottom: 180px;
   }
 
   .right-dark.left-align {
-    margin-left: 165px;
+    margin-left: 65px;
   }
 }
 
