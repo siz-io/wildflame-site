@@ -868,7 +868,7 @@ h3 {
 
   .chart-big {
     padding-left: 0;
-    width: 80%;
+    width: 85%;
     margin: auto;
     margin-top: 0;
     margin-bottom: 30px;
@@ -879,8 +879,7 @@ h3 {
   }
 
   .right-dark.left-align {
-    width: 39%;
-    text-align: left;
+    text-align: center;
     margin: auto;
     margin-bottom: 90px;
   }
