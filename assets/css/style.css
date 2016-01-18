@@ -578,11 +578,9 @@ h3 {
   }
 
   .left .picture {
-    padding-left: 10%;
     width: 60%;
   }
   .chart-big {
-    padding-left: 16%;
     width: 60%;
     margin: auto;
   }
@@ -595,8 +593,12 @@ h3 {
     display: block;
     text-align: center;
     color: #595959;
-    margin-left: 15px; 
+    margin-left: 45px; 
     margin-bottom: 100px;
+  }
+
+  .right-dark.left-align {
+    margin-left: 165px;
   }
 }
 
