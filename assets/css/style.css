@@ -171,11 +171,11 @@ section {
 }
 
 .icon.map {
-  width: 80px;
+  width: 60px;
 }
 
 .icon.chart {
-  width: 80px;
+  width: 60px;
 }
 
 
@@ -272,7 +272,7 @@ p {
   margin-bottom: 40px;
   margin-top: 5px;
   color: #595959;
-  width: 450px;
+  width: 350px;
   text-align: left;
   margin: auto;
 }
@@ -328,13 +328,11 @@ p {
 
 .icon-female {
   display: block;
-  width: 50px;
+  width: 40px;
   margin: auto;
 }
 
-.icon-http://uploaded.net/file/t8lhlpoj
-
- {
+.icon-chart {
   display: block;
   width: 100px;
   margin: auto;
@@ -446,7 +444,7 @@ h3 {
 
 .brace-img {
   display: block;
-  width: 40px;
+  width: 35px;
   margin: auto;
 }
 
@@ -474,14 +472,14 @@ h3 {
 
 .left .picture {
   padding-left: 90px;
-  width: 450px;
+  width: 350px;
   margin: auto;
   margin-top: 30px;
 }
 
 .chart-big {
-  padding-left: 90px;
-  width: 500px;
+  padding-left: 150px;
+  width: 450px;
   margin: auto;
   margin-top: 30px;
 }
@@ -493,8 +491,9 @@ h3 {
   text-align: center;
   color: #595959;
   width: 60%;
-  margin-left: 50px;
+  margin-left: -20px;
   margin-bottom: 90px;
+  font-size: 15px;
 }
 
 #contact a {
@@ -579,8 +578,8 @@ h3 {
   }
 
   .left .picture {
-    padding-left: 0;
-    width: 86%;
+    padding-left: 5%;
+    width: 66%;
   }
   .chart-big {
     padding-left: 5%;
@@ -769,6 +768,7 @@ h3 {
   .brace-img {
     transform: rotate(90deg);
     margin-top: -15px;
+    width: 40px;
   }
 
   .five-mid p {
