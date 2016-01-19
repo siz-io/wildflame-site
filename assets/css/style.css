@@ -187,6 +187,7 @@ section {
 .mid-l, .mid, .mid-r {
   display: inline-block;
   width: 33%;
+  margin: auto;
 }
 
 .five-l, .five-mid-l, .five-mid, .five-mid-r, .five-r {
@@ -206,6 +207,10 @@ h2 {
 
 p {
   color: #A6AAA8;
+}
+
+.wide-content {
+  text-align: center;
 }
 
 .grey {
@@ -253,12 +258,20 @@ p {
   text-align: right;
 }
 
+.text-content {
+  width: 33%;
+  margin: auto;
+}
+
+#container {
+  display: inline-block;
+}
+
 .dark-text {
   margin-bottom: 40px;
   margin-top: 5px;
   color: #595959;
   text-align: left;
-  width: 300px;
 }
 
 .dark.margin {
@@ -272,13 +285,12 @@ p {
 }
 
 .right-dark.left-align {
-  position:  relative;
-  left: 10%;
-  margin-bottom: 40px;
-  margin-top: 5px;
+  display: inline-table;
   color: #595959;
   text-align: left;
   margin: auto;
+  margin-bottom: 100px;
+  margin-top: 5px;
   padding-left: 2%;
 }
 
@@ -476,40 +488,33 @@ h3 {
   vertical-align: top;
 }
 
-.left .picture {
-  position: relative;
-  left: 39%;
-  display: block;
-  width: 380px;
-  margin-top: 30px;
-}
-
-.chart-big {
-  position: relative;
-  left: 9%;
-  display: block;
-  width: 350px;
-  margin-top: 30px;
-}
-
-.left a, .right a {
-  position: relative;
-  left: 28%;
-  display: block;
-  text-align: center;
-  color: #595959;
-  margin-left: 0;
-  font-size: 15px;
-}
-
-.left.side, .right.side {
-  display: inline-block;
-  width: 40%;
+.use-content {
+  width: 65%;
   margin: auto;
 }
 
-.left.side {
-  margin-right: 9%;
+.use-content .picture {
+  display: inline-block;
+  width: 45%;
+  margin-top: 30px;
+  margin-right: 10%;
+}
+
+.chart-big {
+  display: inline-block;
+  width: 40%;
+  margin-top: 30px;
+}
+
+.use-content a, .use-content a {
+  display: inline-block;
+  margin-top: 20px;
+  margin-bottom: 90px;
+  color: #595959;
+  margin-left: 0;
+  font-size: 15px;
+  margin-right: 11%;
+  text-align: center;
 }
 
 #contact a {
@@ -594,26 +599,28 @@ h3 {
     font-size: 18px;
   }
 
-  .left .picture {
-    width: 380px;
+  .use-content {
+    width: 75%;
+  }
+
+  .use-content .picture {
+    display: inline-block;
   }
 
   .chart-big {
-    width: 350px;
+    display: inline-block;
   }
 
-  .left a, .right a {
-    padding-left: 0;
+  .use-content a, .use-content a {
+    display: inline-block;
     margin-top: 20px;
-    display: block;
-    text-align: center;
     color: #595959;
-    margin-bottom: 100px;
     margin-left: 0;
-  }
-
-  .right-dark.left-align {
-    margin: 0;
+    font-size: 15px;
+    margin-right: 11%;
+    text-align: center;
+    padding-left: 0;
+    margin-bottom: 100px;
   }
 }
 
@@ -630,14 +637,6 @@ h3 {
     color: #595959;
     margin-bottom: 100px;
     font-size: 12px;
-  }
-
-   .right-dark.left-align {
-    font-size: 16px;
-  }
-
-  .upper {
-    font-size: 25px;
   }
 }
 
