@@ -284,34 +284,35 @@ p {
   margin: auto;
 }
 
-.right-dark.left-align {
-  display: inline-table;
-  color: #595959;
-  text-align: left;
-  margin: auto;
-  margin-bottom: 100px;
-  margin-top: 5px;
-  padding-left: 2%;
-}
-
 .grey .cesar {
   margin-top: -58px;
   font-size: 30px;
   width: 40px;
-  margin-left: 7%;
 }
 
 .grey .subtitle.no-margin {
   margin-bottom: 0;
 }
 
+.wide-native {
+  width: 49%;
+  margin: auto;
+}
+
+.icon-cesar {
+  width: 90px;
+  margin-left: 0;
+  display: inline-block;
+  margin-top: 30px;
+  margin-bottom: -8px;
+}
+
 .grey .cesar-sub {
+  display: inline-block;
   color: #595959;
-  margin-left: 110px;
-  margin-top: -29px;
   margin-bottom: 115px;
   text-align: left;
-  width: 170%;
+  padding-left: 2%;
 }
 
 .grey .cesar-sub a {
@@ -332,11 +333,12 @@ p {
   padding-left: 90px;
 }
 
-.icon.small {
+
+.icon-reach {
+  display: inline-block;
   width: 200px;
-  margin-top: -100px;
-  margin-left: 315px;
-  margin-bottom: 90px;
+  position: relative;
+  left: 5%;
 }
 
 .icon.heart {
@@ -357,16 +359,18 @@ p {
   margin: auto;
 }
 
-.reach {
+.reach-text {
   margin-top: 0;
-  margin-left: -35%;
+  display: inline-block;
 }
 
 .reach-sub {
+  display: block;
   color: #595959;
-  margin-bottom: 45px;
+  font-weight: 400;
+  font-size: 20px;
+  text-align: center;
   margin-top: 0;
-  width: 68%;
 }
 
 .grey .right {
@@ -471,7 +475,7 @@ h3 {
   margin-bottom: 90px;
   color: #595959;
   text-align: left;
-  width: 320px;
+  width: 300px;
   vertical-align: top;
 }
 
@@ -489,21 +493,24 @@ h3 {
 }
 
 .use-content {
-  width: 65%;
+  width: 80%;
   margin: auto;
 }
 
 .use-content .picture {
   display: inline-block;
-  width: 45%;
+  width: 375px;
   margin-top: 30px;
-  margin-right: 10%;
+  position: relative;
+  left: -5%;
 }
 
 .chart-big {
   display: inline-block;
-  width: 40%;
+  width: 400px;
   margin-top: 30px;
+  position: relative;
+  left: 5%;
 }
 
 .use-content a, .use-content a {
@@ -512,9 +519,22 @@ h3 {
   margin-bottom: 90px;
   color: #595959;
   margin-left: 0;
-  font-size: 15px;
-  margin-right: 11%;
+  position: relative;
+  left: -12%;
+  font-size: 14px;
   text-align: center;
+}
+
+.right-dark.left-align {
+  display: inline-table;
+  color: #595959;
+  text-align: left;
+  margin: auto;
+  margin-bottom: 100px;
+  margin-top: 5px;
+  padding-left: 2%;
+  position: relative;
+  left: -2%;
 }
 
 #contact a {
@@ -579,10 +599,6 @@ h3 {
     margin-left: -25%;
   }
 
-  .reach-sub {
-    width: 78%;
-  }
-
   .icon.small {
     margin-left: 55%;
   }
@@ -612,15 +628,7 @@ h3 {
   }
 
   .use-content a, .use-content a {
-    display: inline-block;
-    margin-top: 20px;
-    color: #595959;
-    margin-left: 0;
-    font-size: 15px;
-    margin-right: 11%;
-    text-align: center;
-    padding-left: 0;
-    margin-bottom: 100px;
+    left: -14%;
   }
 }
 
@@ -638,20 +646,22 @@ h3 {
     margin-bottom: 100px;
     font-size: 12px;
   }
-}
 
-@media (max-width: 1061px) {
-  .left .l .fat.white, .right .l .fat.white, .left .l .fat-sub, .right .l .fat-sub { 
-    margin-left: 15%;
+  .use-content .picture {
+    width: 380px;
   }
 
-  .grey .cesar {
-    margin-left: 10%;
+  .chart-big {
+    width: 350px;
+  }
+
+  .use-content a, .use-content a {
+    left: -12%;
   }
 }
 
 /* Mobile Devices */
-@media (max-width: 950px) {
+@media (max-width: 1065px) {
   header h1 {
     font-size: 25px;
     line-height: 30px;
@@ -671,6 +681,15 @@ h3 {
 
   h2 {
     font-size: 25px;
+  }
+
+  #container {
+    display: block;
+  }
+
+  .wide-native {
+    width: 49%;
+    margin: auto;
   }
 
   .subtitle {
@@ -707,14 +726,14 @@ h3 {
     margin-top: -57px;
   }
 
-  .reach {
+  .reach-text {
     margin-left: 0;
   }
 
   .reach-sub {
     width: auto;
-    padding-left: 2%;
-    margin-bottom: 100px;
+    padding-left: 0;
+    margin-bottom: 80px;
   }
 
   .grey.margin {
@@ -724,24 +743,31 @@ h3 {
   .grey .cesar-sub {
     width: auto;
     padding-left: 8%;
-    margin-top: 40px;
+    margin-top: 15px;
     margin-left: 0;
-    margin-bottom: 0;
+    margin-bottom: 40px;
     text-align: center;
   }
 
-  .grey .icon {
+  .grey .icon-cesar {
     margin: auto;
     margin-top: 40px;
   }
 
-  .grey .cesar {
-    width: auto;
-    margin-left: 0;
-  }
-
   .grey .cesar-sub a {
     font-size: 20px;
+  }
+
+  .icon-reach {
+    display: none;
+  }
+
+  .text-content {
+    width: 93%;
+  }
+
+  .text-content:nth-child(3) {
+    margin-bottom: 70px;
   }
 
   .icon-left {
@@ -751,6 +777,7 @@ h3 {
   }
 
   .icon.heart {
+    left: 0;
     margin: auto;
   }
 
@@ -801,6 +828,8 @@ h3 {
 
   .brace-img {
     transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);     
     margin-top: -15px;
     width: 40px;
   }
@@ -859,12 +888,12 @@ h3 {
     margin-bottom: 10px;
   }
 
-  .left .picture {
+  .use-content .picture {
     padding-left: 0;
     width: 88%;
   }
 
-  .left a, .right a {
+  .use-content a, .use-content a {
     padding-left: 0;
     width: auto;
     margin: auto;
