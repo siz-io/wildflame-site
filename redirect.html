@@ -16,23 +16,21 @@
 </head>
 <body>
 
- <script type="text/javascript">
-  function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-    results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-  }
-
-  var decodedURI = getParameterByName('url', window.location.href)
-
-  ga('send', 'event', 'redirect', decodedURI, {
-    'transport': 'beacon',
-    'hitCallback': function(){document.location = decodedURI}
-  })
-</script>
+  <script type="text/javascript">
+    function getParameterByName(name, url) {
+      if (!url) url = window.location.href;
+      name = name.replace(/[\[\]]/g, "\\$&");
+      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+      results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+    
+    ga('send', 'event', 'redirect', getParameterByName(), {
+      'transport': 'beacon',
+      'hitCallback': function(){document.location = getParameterByName()}
+    })
+  </script>
 </body>
 </html>
