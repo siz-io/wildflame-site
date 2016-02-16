@@ -26,10 +26,12 @@
       if (!results[2]) return '';
       return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
-    
-    ga('send', 'event', 'redirect', getParameterByName(), {
+
+    console.log(getParameterByName('url'))
+
+    ga('send', 'event', 'redirect', getParameterByName('url'), {
       'transport': 'beacon',
-      'hitCallback': function(){document.location = getParameterByName()}
+      'hitCallback': function(){document.location = getParameterByName('url')}
     })
   </script>
 </body>
