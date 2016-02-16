@@ -76,8 +76,9 @@ strong {
   font-weight: 400;
   color: #595959;
   padding: 10px;
-  padding-left: 0;
-  width: 95%;
+  padding-left: 80px;
+  padding-right: 0;
+  width: 90%;
   font-size: 27px;
   margin: auto;
   text-align: center;
@@ -95,6 +96,10 @@ strong {
 .five-l, .five-mid-l, .five-mid, .five-mid-r, .five-r {
   display: inline-block;
   width: 19%;
+}
+
+.five-mid {
+  padding-left: 29px;
 }
 
 .dark {
@@ -117,9 +122,17 @@ strong {
   font-style: italic;
   text-transform: none;
   text-decoration: underline;
-  position: absolute;
-  right: 5%;
-  top: 19%;
+  float: right;
+  font-size: 18px;
+  padding-top: 10px;
+}
+
+.last-update {
+  text-align: center;
+  font-style: italic;
+  margin-top: 10px;
+  color: #595959;
+  font-weight: 300;
 }
 
 @media (max-width: 1350px) {
@@ -152,10 +165,6 @@ strong {
 
   .five-r {
     width: 100%;
-  }
-
-  .post-link {
-    right: 14%;
   }
 }
 
