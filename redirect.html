@@ -27,9 +27,11 @@
       return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
 
-    ga('send', 'event', 'redirect', getParameterByName('url'), {
+    var targetURL = getParameterByName('url')
+
+    ga('send', 'event', 'redirect', , {
       'transport': 'beacon',
-      'hitCallback': function(){document.location = getParameterByName('url')}
+      'hitCallback': function(){document.location = targetURL}
     })
   </script>
 </body>
