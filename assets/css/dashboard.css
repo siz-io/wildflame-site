@@ -136,6 +136,10 @@ strong {
 }
 
 @media (max-width: 1350px) {
+  .five-mid {
+    padding-left: 0;
+  }
+
   .five-l, .five-mid-l, .five-mid, .five-mid-r, .five-r {
     display: inline-block;
     width: 33%;
@@ -148,6 +152,10 @@ strong {
   .post {
     height: auto;
   }
+
+  .last-update {
+    margin-bottom: 30px;
+  }
 }
 
 @media (max-width: 750px) {
@@ -155,7 +163,11 @@ strong {
     width: 90%;
   }
   .post .post-name, .post-detail {
-    width: 80%;
+    width: 69%;
+  }
+
+  .five-mid {
+    padding-left: 0;
   }
 
   .five-l, .five-mid-l, .five-mid, .five-mid-r, .five-r {
@@ -169,6 +181,10 @@ strong {
 }
 
 @media (max-width: 500px) {
+  .five-mid {
+    padding-left: 0;
+  }
+
  .five-l, .five-mid-l , .five-mid, .five-mid-r, .five-r {
     width: 100%;
     display: block;
