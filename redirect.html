@@ -27,8 +27,6 @@
       return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
 
-    console.log(getParameterByName('url'))
-
     ga('send', 'event', 'redirect', getParameterByName('url'), {
       'transport': 'beacon',
       'hitCallback': function(){document.location = getParameterByName('url')}
