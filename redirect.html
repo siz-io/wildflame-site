@@ -29,7 +29,7 @@
 
     var targetURL = getParameterByName('url')
 
-    ga('send', 'event', 'redirect', , {
+    ga('send', 'event', 'redirect', targetURL, {
       'transport': 'beacon',
       'hitCallback': function(){document.location = targetURL}
     })
