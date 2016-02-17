@@ -135,6 +135,46 @@ strong {
   font-weight: 300;
 }
 
+.report-name {
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #A6AAA8;
+  padding-left: 6%;
+  padding-right: 0;
+  width: 76%;
+  margin: auto;
+  padding-top: 40px;
+}
+
+.list-link {
+  display: block;
+  padding: 10px;
+  padding-left: 15px;
+  width: 70%;
+  background-color: #FFF;
+  margin: auto;
+  margin-top: 30px;
+  box-shadow: 0 1px 1px rgba(50, 50, 50, 0.2);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #595959;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.list-link:nth-child(1) {
+  margin-top: 5px;
+}
+
+.arrow {
+  float: right;
+  font-size: 30px;
+  margin-top: -10px;
+  font-weight: 300;
+  margin-right: 10px;
+}
+
 @media (max-width: 1350px) {
   .five-mid {
     padding-left: 0;
