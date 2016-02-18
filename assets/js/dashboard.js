@@ -22,7 +22,9 @@ $(document).ready(function() {
     jsonp: "callback",
   })
   .done(function (data) {
-    console.log(data)
+    var email = data.feed.author[0].email.$t.substr(-11)
+    if (email !== "@viewrz.com") document.location = '/error'
+
     var reach = data.feed.entry[0].content.$t.split('reach: ')[1].split(',')[0]
     var clicks = data.feed.entry[0].content.$t.split('clicks: ')[1].split(',')[0]
     var engagement = data.feed.entry[0].content.$t.split('engagement: ')[1].split(',')[0]

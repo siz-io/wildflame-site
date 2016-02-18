@@ -76,9 +76,9 @@ strong {
   font-weight: 400;
   color: #595959;
   padding: 10px;
-  padding-left: 80px;
+  padding-left: 110px;
   padding-right: 0;
-  width: 90%;
+  width: 80%;
   font-size: 27px;
   margin: auto;
   text-align: center;
@@ -95,7 +95,7 @@ strong {
 
 .dashboard-section {
   display: inline-block;
-  width: 19%;
+  width: 19.7%;
 }
 
 .five-mid {
@@ -115,6 +115,15 @@ strong {
   color: #F72A4E;
   font-weight: 900;
   font-size: 40px;
+}
+
+.icon {
+  height: 30px;
+  margin-top: 10px;
+}
+
+.big {
+  height: 20px;
 }
 
 .dashboard-link {
@@ -206,12 +215,18 @@ strong {
   .dashboard {
     width: 90%;
   }
-  .dashboard .dashboard-name, .dashboard-detail {
+  
+  .dashboard-detail {
     width: 69%;
   }
 
   .four, .three, .two, .one, .dashboard-section {
     width: 100% !important;
+    display: block;
+    text-align: center;
+  }
+
+  .dashboard-name, .dashboard-link {
     display: block;
     text-align: center;
   }
@@ -222,6 +237,23 @@ strong {
     width: 100% !important;
     display: block;
     text-align: center;
+  }
+
+  .dashboard .dashboard-name, .dashboard-link {
+    display: block;
+    text-align: center;
+  }
+
+  .dashboard-link {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .dashboard .dashboard-name {
+    width: 80%;
+    height: 65px;
+    font-size: 20px;
+    padding-left: 0;
   }
 }
 

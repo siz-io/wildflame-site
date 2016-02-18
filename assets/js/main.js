@@ -20,9 +20,13 @@ $(document).ready(function() {
     jsonp: "callback",
   })
   .done(function (data) {
+    var email = data.feed.author[0].email.$t.substr(-11)
+    if (email !== "@viewrz.com") document.location = '/error'
+    
     $('.report-name').html(data.feed.title.$t)
+    
     for (var i = 0; i < data.feed.entry.length; i++) {
-      $('.list').append('<a class=list-link href="dashboard.html?dashboard-id=' + data.feed.entry[i].id.$t.split('/basic/')[1] + '&report-id=' + reportID +'">' + data.feed.entry[i].title.$t + '<span class="arrow">></span></a>')
+      $('.list').append('<a class=list-link href="dashboard.html?report-id=' + reportID + '&dashboard-id=' + data.feed.entry[i].id.$t.split('/basic/')[1] + '">' + data.feed.entry[i].title.$t + '<span class="arrow">></span></a>')
     }
 
     $('.list-link').first().css('margin-top', '15px')
