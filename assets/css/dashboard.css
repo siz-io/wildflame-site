@@ -93,7 +93,7 @@ strong {
   margin-top: 50px;
 }
 
-.five-l, .five-mid-l, .five-mid, .five-mid-r, .five-r {
+.post-section {
   display: inline-block;
   width: 19%;
 }
@@ -176,17 +176,21 @@ strong {
 }
 
 @media (max-width: 1350px) {
-  .five-mid {
-    padding-left: 0;
-  }
-
-  .five-l, .five-mid-l, .five-mid, .five-mid-r, .five-r {
+  .post-section {
     display: inline-block;
     width: 33%;
   }
 
-  .five-mid-r, .five-r {
-    width: 49%;
+  .post-section:nth-child(5) {
+    width: 100% !important;
+  }
+
+  .four, .post-section {
+    width: 49% !important;
+  }
+
+  .three {
+    width: 100% !important; 
   }
 
   .post {
@@ -206,27 +210,16 @@ strong {
     width: 69%;
   }
 
-  .five-mid {
-    padding-left: 0;
-  }
-
-  .five-l, .five-mid-l, .five-mid, .five-mid-r, .five-r {
-    display: inline-block;
-    width: 49%;
-  }
-
-  .five-r {
-    width: 100%;
+  .four, .three, .two, .one, .post-section {
+    width: 100% !important;
+    display: block;
+    text-align: center;
   }
 }
 
 @media (max-width: 500px) {
-  .five-mid {
-    padding-left: 0;
-  }
-
- .five-l, .five-mid-l , .five-mid, .five-mid-r, .five-r {
-    width: 100%;
+  .four, .three, .two, .one, .post-section {
+    width: 100% !important;
     display: block;
     text-align: center;
   }
