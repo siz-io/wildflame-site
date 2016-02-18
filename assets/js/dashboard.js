@@ -13,10 +13,10 @@ $(document).ready(function() {
   $('.post-detail').children().hide()
   var dashboardID = getParameterByName('dashboard-id')
   var reportID = getParameterByName('report-id')
-  var spreadsheetURL = 'https://spreadsheets.google.com/feeds/list/' + reportID + '/' + dashboardID + '/public/basic?alt=json-in-script'
+  var URL = 'https://spreadsheets.google.com/feeds/list/' + reportID + '/' + dashboardID + '/public/basic?alt=json-in-script'
   
   $.ajax({
-    url: spreadsheetURL,
+    url: URL,
     type: 'GET',
     dataType: 'jsonp',
     jsonp: "callback",
