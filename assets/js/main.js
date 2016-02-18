@@ -11,10 +11,10 @@ function getParameterByName(name, url) {
 $(document).ready(function() {
   if (!getParameterByName('report-id')) document.location = '/error'
   var reportID = getParameterByName('report-id')
-  var spreadsheetURL = 'https://spreadsheets.google.com/feeds/worksheets/' + reportID + '/public/basic?alt=json-in-script'
+  var URL = 'https://spreadsheets.google.com/feeds/worksheets/' + reportID + '/public/basic?alt=json-in-script'
 
   $.ajax({
-    url: spreadsheetURL,
+    url: URL,
     type: 'GET',
     dataType: 'jsonp',
     jsonp: "callback",
