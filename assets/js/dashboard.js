@@ -9,8 +9,8 @@ function getParameterByName(name, url) {
 }
 
 $(document).ready(function() {
-  $('.post-name').hide()
-  $('.post-detail').children().hide()
+  $('.dashboard-name').hide()
+  $('.dashboard-detail').children().hide()
   var dashboardID = getParameterByName('dashboard-id')
   var reportID = getParameterByName('report-id')
   var URL = 'https://spreadsheets.google.com/feeds/list/' + reportID + '/' + dashboardID + '/public/basic?alt=json-in-script'
@@ -29,7 +29,7 @@ $(document).ready(function() {
     var ie = data.feed.entry[0].content.$t.split('incomegenerated: ')[1]
     var cost = data.feed.entry[0].content.$t.split('cost: ')[1].split(',')[0]
     
-    $('.post-name').html(data.feed.title.$t + ' <a class="post-link" href="' + data.feed.entry[0].content.$t.split('posturl: ')[1].split(',')[0] + '">Post link</a>')
+    $('.dashboard-name').html(data.feed.title.$t + ' <a class="dashboard-link" href="' + data.feed.entry[0].content.$t.split('posturl: ')[1].split(',')[0] + '">Dashboard link</a>')
     $('#reach').html(reach)
     $('#clicks').html(clicks)
     $('#engagement').html(engagement)
@@ -42,29 +42,29 @@ $(document).ready(function() {
     if (ie === "0$") $("#ie").parent().parent().remove()
     if (cost === "0") $("#cost").parent().parent().remove()
 
-    if ($('.post-section').length === 4) {
-      $('.post-section').css('width', '24.2%')
-      $('.post-section').addClass('four')
+    if ($('.dashboard-section').length === 4) {
+      $('.dashboard-section').css('width', '24.2%')
+      $('.dashboard-section').addClass('four')
     }
 
-    if ($('.post-section').length === 3) {
-      $('.post-section').css('width', '33.1%')
-      $('.post-section').addClass('three')
+    if ($('.dashboard-section').length === 3) {
+      $('.dashboard-section').css('width', '33.1%')
+      $('.dashboard-section').addClass('three')
     }
 
-    if ($('.post-section').length === 2) {
-      $('.post-section').css('width', '49.2%')
-      $('.post-section').addClass('two')
+    if ($('.dashboard-section').length === 2) {
+      $('.dashboard-section').css('width', '49.2%')
+      $('.dashboard-section').addClass('two')
     }
 
-    if ($('.post-section').length === 1) {
-      $('.post-section').css('width', '101%')
-      $('.post-section').addClass('one')
+    if ($('.dashboard-section').length === 1) {
+      $('.dashboard-section').css('width', '101%')
+      $('.dashboard-section').addClass('one')
     }
 
     $('.last-update').html('Last update: ' + data.feed.entry[0].updated.$t.replace('T', ' ').split('.')[0].substring(0, 16))
-    $('.post-name').show()
-    $('.post-detail').children().show()
+    $('.dashboard-name').show()
+    $('.dashboard-detail').children().show()
   })
   .fail(function () {
     document.location = '/error'
