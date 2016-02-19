@@ -63,7 +63,7 @@ strong {
 
 .dashboard {
   width: 95%;
-  height: 300px;
+  height: 350px;
   background-color: #FFF;
   margin: auto;
   margin-top: 30px;
@@ -127,7 +127,15 @@ strong {
   margin-top: 18px;
 }
 
-.dashboard-link {
+.icon-ie {
+  padding-right: 28px;
+}
+
+.icon-cost {
+  padding-left: 10px;
+}
+
+.post-link {
   color: #F72A4E;
   font-style: italic;
   text-transform: none;
@@ -185,7 +193,7 @@ strong {
   margin-right: 10px;
 }
 
-@media (max-width: 1350px) {
+@media (max-width: 1050px) {
   .dashboard-section {
     display: inline-block;
     width: 33%;
@@ -227,7 +235,7 @@ strong {
     text-align: center;
   }
 
-  .dashboard-name, .dashboard-link {
+  .dashboard-name, .post-link {
     display: block;
     text-align: center;
   }
@@ -240,12 +248,12 @@ strong {
     text-align: center;
   }
 
-  .dashboard .dashboard-name, .dashboard-link {
+  .dashboard .dashboard-name, .post-link {
     display: block;
     text-align: center;
   }
 
-  .dashboard-link {
+  .post-link {
     width: 100%;
     font-size: 15px;
   }

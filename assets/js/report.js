@@ -31,4 +31,7 @@ $(document).ready(function() {
 
     $('.list-link').first().css('margin-top', '15px')
   })
+  .fail(function () {
+    document.location = '/error'
+  })
 })
