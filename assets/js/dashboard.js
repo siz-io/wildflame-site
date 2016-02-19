@@ -31,6 +31,7 @@ $(document).ready(function () {
     jsonp: 'callback'
   })
     .done(function (data) {
+      if (!data.feed.entry) document.location = '/error'
       if (data.feed.entry[0].gsx$posturl) postURL = data.feed.entry[0].gsx$posturl.$t
       if (data.feed.entry[0].gsx$embedkey) embedKey = data.feed.entry[0].gsx$embedkey.$t
       if (data.feed.entry[0].gsx$reach) reach = data.feed.entry[0].gsx$reach.$t
@@ -38,12 +39,8 @@ $(document).ready(function () {
       if (data.feed.entry[0].gsx$incomegenerated) ie = data.feed.entry[0].gsx$incomegenerated.$t
       if (data.feed.entry[0].gsx$engagement) engagement = data.feed.entry[0].gsx$engagement.$t
       if (data.feed.entry[0].gsx$cost) cost = data.feed.entry[0].gsx$cost.$t
-
       var email = data.feed.author[0].email.$t.substr(-11)
       if (email !== '@viewrz.com') document.location = '/error'
-      if (ie) ie = '$' + ie.replace('$', '')
-      if (cost) cost = '$' + cost.replace('$', '')
-      if (engagement) engagement = Math.round(100 * engagement) + '%'
       if (embedKey) {
         if (/[a-zA-Z0-9-_]+$/.test(embedKey) && embedKey.indexOf('/') > -1) {
           $('.embed').html('<div class="tumblr-post" data-href="https://embed.tumblr.com/embed/post/' + embedKey + '"></div><script async src="https://secure.assets.tumblr.com/post.js"></script>')
@@ -60,11 +57,41 @@ $(document).ready(function () {
       }
 
       if (postURL) {
-        $('.dashboard-name').html(data.feed.title.$t + ' <a class="post-link" href="' + postURL + '">Post link</a>')
+        $('.dashboard-name').html(data.feed.title.$t + ' <a class="post-link" href="' + postURL + '" target="_blank">Post link</a>')
       } else {
         $('.dashboard-name').html(data.feed.title.$t)
         $('.dashboard-name').css('padding-left', '0')
       }
+
+      if (ie) {
+        if (ie.substr(ie.length - 1) === '$') {
+          ie.replace('$', '')
+        }
+        if (ie[0] !== '$') {
+          ie = '$' + ie.split('.')[0]
+        } else {
+          ie = ie.split('.')[0]
+        }
+        ie = ie.split(',')[0] + ' ' + ie.split(',')[1]
+        ie = ie.split('.')[0] + ',' + ie.split('.')[1]
+      }
+      if (cost) {
+        if (cost[0] !== '$') {
+          cost = '$' + cost.split('.')[0]
+        } else {
+          cost = cost.split('.')[0]
+        }
+      }
+      if (reach && reach !== 0) {
+        reach = reach.split(',')[0] + ' ' + reach.split(',')[1]
+        reach = reach.split('.')[0] + ',' + reach.split('.')[1]
+      }
+      if (clicks) {
+        clicks = clicks.split(',')[0] + ' ' + clicks.split(',')[1]
+        cost = cost.split('.')[0] + ',' + cost.split('.')[1]
+      }
+
+      if (engagement) engagement = Math.round(100 * engagement) + '%'
 
       $('#reach').html(reach)
       $('#clicks').html(clicks)
