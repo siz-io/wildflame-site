@@ -88,8 +88,10 @@ $(document).ready(function() {
       $('.dashboard-section').css('width', '101%')
       $('.dashboard-section').addClass('one')
     }
-
-    $('.last-update').html('Last update: ' + data.feed.entry[0].updated.$t.replace('T', ' ').split('.')[0].substring(0, 16))
+    var date = new Date(data.feed.entry[0].updated.$t).toString()
+    date = date.split(':')[0] + ':' + date.split(':')[1]
+    
+    $('.last-update').html('Last update: ' + date)
     $('.dashboard-name').show()
     $('.dashboard-detail').children().show()
   })
