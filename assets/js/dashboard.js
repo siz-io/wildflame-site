@@ -18,28 +18,32 @@ function getParameterByName(name, url) {
 }
 
 function getContent (data) {
-  var spreadsheetData = data.feed.entry[0].content.$t
+  if (data.feed.entry) {
+    var spreadsheetData = data.feed.entry[0].content.$t
 
-  var re = /(\w+): (.+?(?=(?:, \w+:|$)))/mgi;
-  var contentArray = re.exec(spreadsheetData)
-  while (contentArray != null) {
-    var propName = contentArray[1]
-    var propValue = contentArray[2]
+    var re = /(\w+): (.+?(?=(?:, \w+:|$)))/mgi;
+    var contentArray = re.exec(spreadsheetData)
+    while (contentArray != null) {
+      var propName = contentArray[1]
+      var propValue = contentArray[2]
 
-    content[propName] = propValue
-    contentArray = re.exec(spreadsheetData)
-  }
+      content[propName] = propValue
+      contentArray = re.exec(spreadsheetData)
+    }
 
-  if (content["posturl"] || content["embedkey"] || content["reach"] || content["clicks"] || content["incomegenerated"] || content["cost"]) {
-    postURL = content["posturl"]
-    embedKey = content["embedkey"]
-    reach = content["reach"]
-    clicks = content["clicks"]
-    ie = content["incomegenerated"]
-    engagement = content["engagement"]
-    cost = content["cost"]
-  } else if (!content["posturl"] && content["embedkey"] && content["reach"] && content["clicks"] && content["incomegenerated"] && content["cost"]) {
-    document.location = '/error'
+    if (content["posturl"] || content["embedkey"] || content["reach"] || content["clicks"] || content["incomegenerated"] || content["cost"]) {
+      postURL = content["posturl"]
+      embedKey = content["embedkey"]
+      reach = content["reach"]
+      clicks = content["clicks"]
+      ie = content["incomegenerated"]
+      engagement = content["engagement"]
+      cost = content["cost"]
+    } else if (!content["posturl"] && content["embedkey"] && content["reach"] && content["clicks"] && content["incomegenerated"] && content["cost"]) {
+      document.location = '/error'
+    }
+  } else {
+      document.location = '/error'
   }
 }
 
@@ -82,7 +86,13 @@ $(document).ready(function() {
       $('.dashboard').css('height', 'auto')
     }
 
-    $('.dashboard-name').html(data.feed.title.$t + ' <a class="post-link" href="' + postURL + '">Post link</a>')
+    if (postURL) {
+      $('.dashboard-name').html(data.feed.title.$t + ' <a class="post-link" href="' + postURL + '">Post link</a>')
+    } else {
+      $('.dashboard-name').html(data.feed.title.$t)
+      $('.dashboard-name').css('padding-left', '0');
+    }
+
     $('#reach').html(reach)
     $('#clicks').html(clicks)
     $('#engagement').html(engagement)
