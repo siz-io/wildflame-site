@@ -5,6 +5,7 @@ var ie
 var engagement
 var cost
 var postURL
+var embedKey
 
 function getParameterByName(name, url) {
   if (!url) url = window.location.href;
@@ -17,25 +18,29 @@ function getParameterByName(name, url) {
 }
 
 function getContent (data) {
-  data = data.feed.entry[0].content.$t
+  var spreadsheetData = data.feed.entry[0].content.$t
 
   var re = /(\w+): (.+?(?=(?:, \w+:|$)))/mgi;
-  var contentArray = re.exec(data)
+  var contentArray = re.exec(spreadsheetData)
   while (contentArray != null) {
     var propName = contentArray[1]
     var propValue = contentArray[2]
 
     content[propName] = propValue
-    contentArray = re.exec(data)
+    contentArray = re.exec(spreadsheetData)
   }
 
-  postURL = content["posturl"]
-  reach = content["reach"]
-  clicks = content["clicks"]
-  ie = '$' + content["incomegenerated"].replace('$', '')
-  engagement = content["engagement"]
-  engagement = Math.round(100 * engagement) + '%'
-  cost = '$' + content["cost"]
+  if (content["posturl"] || content["embedkey"] || content["reach"] || content["clicks"] || content["incomegenerated"] || content["cost"]) {
+    postURL = content["posturl"]
+    embedKey = content["embedkey"]
+    reach = content["reach"]
+    clicks = content["clicks"]
+    ie = content["incomegenerated"]
+    engagement = content["engagement"]
+    cost = content["cost"]
+  } else if (!content["posturl"] && content["embedkey"] && content["reach"] && content["clicks"] && content["incomegenerated"] && content["cost"]) {
+    document.location = '/error'
+  }
 }
 
 $(document).ready(function() {
@@ -57,6 +62,25 @@ $(document).ready(function() {
     var email = data.feed.author[0].email.$t.substr(-11)
     if (email !== "@viewrz.com") document.location = '/error'
     
+    if (ie) ie = '$' + ie.replace('$', '')
+    if (cost) cost = '$' + cost.replace('$', '')
+    if (engagement) engagement = Math.round(100 * engagement) + '%'
+    
+    if (embedKey) {
+      if (/[a-zA-Z0-9-_]+$/.test(embedKey) && embedKey.indexOf("/") > -1) {
+        $('.embed').html('<div class="tumblr-post" data-href="https://embed.tumblr.com/embed/post/' + embedKey + '"></div><script async src="https://secure.assets.tumblr.com/post.js"></script>')
+      }
+    } 
+
+    if (!reach || /[a-zA-Z]/.test(reach)) $("#reach").parent().parent().remove()
+    if (!clicks || /[a-zA-Z]/.test(clicks)) $("#clicks").parent().parent().remove()
+    if (!engagement || /[a-zA-Z]/.test(engagement)) $("#engagement").parent().parent().remove()
+    if (!ie || /[a-zA-Z]/.test(ie)) $("#ie").parent().parent().remove()
+    if (!cost || /[a-zA-Z]/.test(cost)) $("#cost").parent().parent().remove()
+
+    if (!$('#reach').html() && !$('#clicks').html() && !$('#engagement').html() && !$('#ie').html() && !$('#cost').html()) {
+      $('.dashboard').css('height', 'auto')
+    }
 
     $('.dashboard-name').html(data.feed.title.$t + ' <a class="post-link" href="' + postURL + '">Post link</a>')
     $('#reach').html(reach)
@@ -64,12 +88,6 @@ $(document).ready(function() {
     $('#engagement').html(engagement)
     $('#ie').html(ie)
     $('#cost').html(cost)
-
-    if (reach === "0") $("#reach").parent().parent().remove()
-    if (clicks === "0") $("#clicks").parent().parent().remove()
-    if (engagement === "0%" || engagement === "0.0") $("#engagement").parent().parent().remove()
-    if (ie === "$0") $("#ie").parent().parent().remove()
-    if (cost === "$0") $("#cost").parent().parent().remove()
 
     if ($('.dashboard-section').length === 4) {
       $('.dashboard-section').css('width', '24.2%')

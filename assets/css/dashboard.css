@@ -135,6 +135,11 @@ strong {
   padding-left: 10px;
 }
 
+.embed {
+  width: 40%;
+  margin: auto;
+}
+
 .post-link {
   color: #F72A4E;
   font-style: italic;
@@ -151,6 +156,7 @@ strong {
   margin-top: 10px;
   color: #595959;
   font-weight: 300;
+  margin-bottom: 55px;
 }
 
 .report-name {
@@ -199,6 +205,10 @@ strong {
     width: 33%;
   }
 
+  .embed {
+    width: 55%;
+  }
+
   .dashboard-section:nth-child(5) {
     width: 100% !important;
   }
@@ -223,6 +233,10 @@ strong {
 @media (max-width: 750px) {
   .dashboard {
     width: 90%;
+  }
+
+  .embed {
+    width: 70%;
   }
   
   .dashboard-detail {
@@ -263,6 +277,10 @@ strong {
     height: 65px;
     font-size: 20px;
     padding-left: 0;
+  }
+
+  .embed {
+    width: 90%;
   }
 }
 
