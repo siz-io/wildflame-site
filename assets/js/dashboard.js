@@ -33,7 +33,7 @@ function getContent (data) {
   ie = '$' + content["incomegenerated"].replace('$', '')
   engagement = content["engagement"]
   engagement = Math.round(100 * engagement) + '%'
-  cost = content["cost"]
+  cost = '$' + content["cost"]
 }
 
 $(document).ready(function() {
@@ -65,9 +65,9 @@ $(document).ready(function() {
 
     if (reach === "0") $("#reach").parent().parent().remove()
     if (clicks === "0") $("#clicks").parent().parent().remove()
-    if (engagement === "0") $("#engagement").parent().parent().remove()
-    if (ie === "0$") $("#ie").parent().parent().remove()
-    if (cost === "0") $("#cost").parent().parent().remove()
+    if (engagement === "0%" || engagement === "0.0") $("#engagement").parent().parent().remove()
+    if (ie === "$0") $("#ie").parent().parent().remove()
+    if (cost === "$0") $("#cost").parent().parent().remove()
 
     if ($('.dashboard-section').length === 4) {
       $('.dashboard-section').css('width', '24.2%')
@@ -90,7 +90,7 @@ $(document).ready(function() {
     }
     var date = new Date(data.feed.entry[0].updated.$t).toString()
     date = date.split(':')[0] + ':' + date.split(':')[1]
-    
+
     $('.last-update').html('Last update: ' + date)
     $('.dashboard-name').show()
     $('.dashboard-detail').children().show()
