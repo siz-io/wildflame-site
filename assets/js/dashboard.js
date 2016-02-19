@@ -4,6 +4,7 @@ var clicks
 var ie
 var engagement
 var cost
+var postURL
 
 function getParameterByName(name, url) {
   if (!url) url = window.location.href;
@@ -28,6 +29,7 @@ function getContent (data) {
     contentArray = re.exec(data)
   }
 
+  postURL = content["posturl"]
   reach = content["reach"]
   clicks = content["clicks"]
   ie = '$' + content["incomegenerated"].replace('$', '')
@@ -56,7 +58,7 @@ $(document).ready(function() {
     if (email !== "@viewrz.com") document.location = '/error'
     
 
-    $('.dashboard-name').html(data.feed.title.$t + ' <a class="post-link" href="' + data.feed.entry[0].content.$t.split('posturl: ')[1].split(',')[0] + '">Post link</a>')
+    $('.dashboard-name').html(data.feed.title.$t + ' <a class="post-link" href="' + postURL + '">Post link</a>')
     $('#reach').html(reach)
     $('#clicks').html(clicks)
     $('#engagement').html(engagement)
