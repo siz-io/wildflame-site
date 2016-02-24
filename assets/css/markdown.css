@@ -66,6 +66,12 @@ strong {
   margin: auto;
 }
 
+@media (max-width: 500px) {
+  .markdown-body {
+    padding: 20px;
+  }
+}
+
 .markdown-body a {
   background-color: transparent;
 }
