@@ -278,6 +278,12 @@ strong {
 }
 
 @media (max-width: 500px) {
+  .sidebox .loading .loader {
+    margin-bottom: 110px;
+  }
+  .sidebox-tumblr .loading-tumblr .loader-tumblr {
+    margin-bottom: 45px
+  }
   .four, .three, .two, .one, .dashboard-section {
     width: 100% !important;
     display: block;
