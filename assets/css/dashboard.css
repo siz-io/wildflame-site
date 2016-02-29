@@ -103,6 +103,32 @@ strong {
   padding-left: 29px;
 }
 
+.sidebox .loader, .sidebox-tumblr .loader-tumblr {
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  padding: 1em 0;
+  display: none;
+}
+
+.sidebox .loading .loader, .sidebox-tumblr .loading-tumblr .loader-tumblr {
+  display: block;
+  height: 60px;
+  width: 120px;
+  animation: rotation 1s infinite linear;
+  border: 2px solid rgba(255, 0, 2, 0.2);
+  border-top-color: rgba(255, 0, 2, 0.7);
+  border-radius: 50%;
+  margin: 20px auto;
+  margin-bottom: 45px;
+}
+
+@keyframes rotation {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .dark {
   margin-bottom: 40px;
   margin-top: 20px;

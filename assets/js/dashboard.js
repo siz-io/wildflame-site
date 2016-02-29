@@ -18,8 +18,7 @@ function getParameterByName (name, url) {
 }
 
 $(document).ready(function () {
-  $('.dashboard-name').hide()
-  $('.dashboard-detail').children().hide()
+  $('.dashboard-detail').hide()
   $('.dashboard-section').last().css('border', 'none');
   var dashboardID = getParameterByName('dashboard-id')
   var reportID = getParameterByName('report-id')
@@ -32,6 +31,8 @@ $(document).ready(function () {
     jsonp: 'callback'
   })
     .done(function (data) {
+      $('.sidebox').hide()
+      $('.dashboard-detail').show()
       if (!data.feed.entry) document.location = '/error'
       if (data.feed.entry[0].gsx$posturl) postURL = data.feed.entry[0].gsx$posturl.$t
       if (data.feed.entry[0].gsx$embedkey) embedKey = data.feed.entry[0].gsx$embedkey.$t
@@ -199,12 +200,6 @@ $(document).ready(function () {
           }
         }, 1)
       }
-
-      // $('#reach').html(reach)
-      // $('#clicks').html(clicks)
-      // $('#engagement').html(engagement)
-      // $('#ie').html(ie)
-      // $('#cost').html(cost)
 
       if ($('.dashboard-section').length === 4) {
         $('.dashboard-section').css('width', '24.2%')
