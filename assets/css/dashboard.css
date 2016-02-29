@@ -22,11 +22,12 @@ header {
   box-shadow: 0 1px 1px rgba(50, 50, 50, 0.2);
   height: 70px;
 }
-header .link {
+
+header .container {
   display: block;
-  text-decoration: none;
+  position: absolute;
   width: 100%;
-  height: 70%;
+  height: 80px;
 }
 
 header .logo {
