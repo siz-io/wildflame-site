@@ -64,6 +64,7 @@ $(document).ready(function () {
       }
 
       if (reach && reach !== 0) {
+        reach = reach.replace(',', ' ')
         reach = reach.replace('.', ',')
         var tmp = reach
         var rx = /(\d+)(\d{3})/
@@ -73,6 +74,7 @@ $(document).ready(function () {
         reach = tmp
       }
       if (clicks) {
+        clicks = clicks.replace(',', ' ')
         clicks = clicks.replace('.', ',')
         var tmp = clicks
         var rx = /(\d+)(\d{3})/
@@ -83,6 +85,7 @@ $(document).ready(function () {
       }
       if (engagement) engagement = Math.round(100 * engagement) + '%'
       if (ie) {
+        ie = ie.replace(',', ' ')
         ie = ie.replace('.', ',')
         if (ie.substr(ie.length - 1) === '$') {
           ie = ie.replace('$', '')
@@ -100,6 +103,7 @@ $(document).ready(function () {
         ie = tmp
       }
       if (cost) {
+        cost = cost.replace(',', ' ')
         cost = cost.replace('.', ',')
         if (cost[0] !== '$') {
           cost = '$' + cost.split('.')[0]
