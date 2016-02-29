@@ -95,7 +95,8 @@ strong {
 
 .dashboard-section {
   display: inline-block;
-  width: 19.7%;
+  width: 18.7%;
+  border-right: 1px solid #A6AAA8;
 }
 
 .five-mid {
@@ -203,6 +204,7 @@ strong {
   .dashboard-section {
     display: inline-block;
     width: 33%;
+    border: none;
   }
 
   .embed {

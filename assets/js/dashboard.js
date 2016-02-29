@@ -20,6 +20,7 @@ function getParameterByName (name, url) {
 $(document).ready(function () {
   $('.dashboard-name').hide()
   $('.dashboard-detail').children().hide()
+  $('.dashboard-section').last().css('border', 'none');
   var dashboardID = getParameterByName('dashboard-id')
   var reportID = getParameterByName('report-id')
   var URL = 'https://spreadsheets.google.com/feeds/list/' + reportID + '/' + dashboardID + '/public/full?alt=json-in-script'
@@ -64,8 +65,8 @@ $(document).ready(function () {
       }
 
       if (reach && reach !== 0) {
-        reach = reach.replace(',', ' ')
-        reach = reach.replace('.', ',')
+        reach = reach.replace(',', '.')
+        reach = reach.replace('.', ' ')
         var tmp = reach
         var rx = /(\d+)(\d{3})/
         while (rx.test(tmp)) {
@@ -74,8 +75,8 @@ $(document).ready(function () {
         reach = tmp
       }
       if (clicks) {
-        clicks = clicks.replace(',', ' ')
-        clicks = clicks.replace('.', ',')
+        clicks = clicks.replace(',', '.')
+        clicks = clicks.replace('.', ' ')
         var tmp = clicks
         var rx = /(\d+)(\d{3})/
         while (rx.test(tmp)) {
@@ -85,8 +86,8 @@ $(document).ready(function () {
       }
       if (engagement) engagement = Math.round(100 * engagement) + '%'
       if (ie) {
-        ie = ie.replace(',', ' ')
-        ie = ie.replace('.', ',')
+        ie = ie.replace(',', '.')
+        ie = ie.replace('.', ' ')
         if (ie.substr(ie.length - 1) === '$') {
           ie = ie.replace('$', '')
         }
@@ -103,21 +104,107 @@ $(document).ready(function () {
         ie = tmp
       }
       if (cost) {
-        cost = cost.replace(',', ' ')
-        cost = cost.replace('.', ',')
         if (cost[0] !== '$') {
           cost = '$' + cost.split('.')[0]
         } else {
           cost = cost.split('.')[0]
         }
+        cost = cost.replace(',', '.')
+        cost = cost.replace('.', ' ')
       }
 
+      var i = 0
+      var j = 0
+      var k = 0
+      var l = 0
+      var m = 0
 
-      $('#reach').html(reach)
-      $('#clicks').html(clicks)
-      $('#engagement').html(engagement)
-      $('#ie').html(ie)
-      $('#cost').html(cost)
+      if (reach) {
+        var reachTimer = setInterval(function () {
+          var tmpReach = reach.replace(',', '')
+          if (parseInt(tmpReach) <= 10) i++
+          if (parseInt(tmpReach) <= 100 && parseInt(tmpReach) >= 10) i += 10
+          if (parseInt(tmpReach) <= 1000 && parseInt(tmpReach) >= 100) i += 10
+          if (parseInt(tmpReach) <= 10000 && parseInt(tmpReach) >= 1000) i += 100
+          if (parseInt(tmpReach) <= 100000 && parseInt(tmpReach) >= 10000) i += 200
+          if (parseInt(tmpReach) <= 1000000 && parseInt(tmpReach) >= 100000) i += 10000
+          $('#reach').html(i)
+
+          if (i > parseInt(tmpReach)) {
+            clearInterval(reachTimer)
+            $('#reach').html(reach)
+          }
+        }, 1)
+      }
+
+      if (clicks) {
+        var clicksTimer = setInterval(function () {
+          var tmpClicks = clicks.replace(' ', '')
+          if (parseInt(tmpClicks) <= 10) j++
+          if (parseInt(tmpClicks) <= 100 && parseInt(tmpClicks) >= 10) j += 10
+          if (parseInt(tmpClicks) <= 1000 && parseInt(tmpClicks) >= 100) j += 10
+          if (parseInt(tmpClicks) <= 10000 && parseInt(tmpClicks) >= 1000) j += 100
+          if (parseInt(tmpClicks) <= 100000 && parseInt(tmpClicks) >= 10000) j += 200
+          $('#clicks').html(j)
+
+          if (j > parseInt(tmpClicks)) {
+            clearInterval(clicksTimer)
+            $('#clicks').html(clicks)
+          }
+        }, 1)
+      }
+
+      if (engagement) {        
+        var engagementTimer = setInterval(function () {
+          var tmpEngagement = engagement.replace('%', '')
+          k++
+          $('#engagement').html(k + '%')
+          if (k > parseInt(tmpEngagement)) {
+            clearInterval(engagementTimer)
+            $('#engagement').html(engagement)
+          }
+        }, 30)
+      }
+
+      if (ie) {
+        var ieTimer = setInterval(function () {
+          var tmpIe = ie.replace('$', '').replace(' ', '')
+          if (parseInt(tmpIe) <= 10) l++
+          if (parseInt(tmpIe) <= 100 && parseInt(tmpIe) >= 10) l += 10
+          if (parseInt(tmpIe) <= 1000 && parseInt(tmpIe) >= 100) l += 10
+          if (parseInt(tmpIe) <= 10000 && parseInt(tmpIe) >= 1000) l += 100
+          if (parseInt(tmpIe) <= 100000 && parseInt(tmpIe) >= 10000) l += 200
+          $('#ie').html('$' + l)
+
+          if (l > parseInt(tmpIe)) {
+            clearInterval(ieTimer)
+            $('#ie').html(ie)
+          }
+        }, 1)
+      }
+
+      if (cost) {
+        var costTimer = setInterval(function () {
+          var tmpCost = cost.replace('$', '').replace(' ', '')
+          if (parseInt(tmpCost) <= 10) m++
+          if (parseInt(tmpCost) <= 100 && parseInt(tmpCost) >= 10) m += 10
+          if (parseInt(tmpCost) <= 1000 && parseInt(tmpCost) >= 100) m += 10
+          if (parseInt(tmpCost) <= 10000 && parseInt(tmpCost) >= 1000) m += 100
+          if (parseInt(tmpCost) <= 100000 && parseInt(tmpCost) >= 10000) m += 200
+          $('#cost').html('$' + m)
+
+          if (m > parseInt(tmpCost)) {
+            clearInterval(costTimer)
+            $('#cost').html(cost)
+          }
+        }, 1)
+      }
+
+      // $('#reach').html(reach)
+      // $('#clicks').html(clicks)
+      // $('#engagement').html(engagement)
+      // $('#ie').html(ie)
+      // $('#cost').html(cost)
 
       if ($('.dashboard-section').length === 4) {
         $('.dashboard-section').css('width', '24.2%')
