@@ -63,17 +63,41 @@ $(document).ready(function () {
         $('.dashboard-name').css('padding-left', '0')
       }
 
+      if (reach && reach !== 0) {
+        reach = reach.replace(',', ' ')
+        var tmp = reach
+        var rx = /(\d+)(\d{3})/
+        while (rx.test(tmp)) {
+          tmp = tmp.replace(rx, '$1 $2')
+        }
+        reach = tmp
+      }
+      if (clicks) {
+        clicks = clicks.replace(',', ' ')
+        var tmp = clicks
+        var rx = /(\d+)(\d{3})/
+        while (rx.test(tmp)) {
+          tmp = tmp.replace(rx, '$1 $2')
+        }
+        clicks = tmp
+      }
+      if (engagement) engagement = Math.round(100 * engagement) + '%'
       if (ie) {
         if (ie.substr(ie.length - 1) === '$') {
-          ie.replace('$', '')
+          ie = ie.replace('$', '')
         }
         if (ie[0] !== '$') {
           ie = '$' + ie.split('.')[0]
         } else {
           ie = ie.split('.')[0]
         }
-        ie = ie.split(',')[0] + ' ' + ie.split(',')[1]
-        ie = ie.split('.')[0] + ',' + ie.split('.')[1]
+        ie = ie.replace(',', ' ')
+        var tmp = ie
+        var rx = /(\d+)(\d{3})/
+        while (rx.test(tmp)) {
+          tmp = tmp.replace(rx, '$1 $2')
+        }
+        ie = tmp
       }
       if (cost) {
         if (cost[0] !== '$') {
@@ -82,16 +106,7 @@ $(document).ready(function () {
           cost = cost.split('.')[0]
         }
       }
-      if (reach && reach !== 0) {
-        reach = reach.split(',')[0] + ' ' + reach.split(',')[1]
-        reach = reach.split('.')[0] + ',' + reach.split('.')[1]
-      }
-      if (clicks) {
-        clicks = clicks.split(',')[0] + ' ' + clicks.split(',')[1]
-        cost = cost.split('.')[0] + ',' + cost.split('.')[1]
-      }
 
-      if (engagement) engagement = Math.round(100 * engagement) + '%'
 
       $('#reach').html(reach)
       $('#clicks').html(clicks)
