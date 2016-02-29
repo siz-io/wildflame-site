@@ -19,7 +19,8 @@ function getParameterByName (name, url) {
 
 $(document).ready(function () {
   $('.dashboard-detail').hide()
-  $('.dashboard-section').last().css('border', 'none');
+  $('.dashboard').css('height', '280px')
+  $('.dashboard-section').last().css('border', 'none')
   var dashboardID = getParameterByName('dashboard-id')
   var reportID = getParameterByName('report-id')
   var URL = 'https://spreadsheets.google.com/feeds/list/' + reportID + '/' + dashboardID + '/public/full?alt=json-in-script'
@@ -32,6 +33,7 @@ $(document).ready(function () {
   })
     .done(function (data) {
       $('.sidebox').hide()
+      $('.dashboard').css('height', 'auto')
       $('.dashboard-detail').show()
       if (!data.feed.entry) document.location = '/error'
       if (data.feed.entry[0].gsx$posturl) postURL = data.feed.entry[0].gsx$posturl.$t
