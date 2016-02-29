@@ -64,7 +64,7 @@ $(document).ready(function () {
       }
 
       if (reach && reach !== 0) {
-        reach = reach.replace(',', ' ')
+        reach = reach.replace(',', '.')
         var tmp = reach
         var rx = /(\d+)(\d{3})/
         while (rx.test(tmp)) {
@@ -73,7 +73,7 @@ $(document).ready(function () {
         reach = tmp
       }
       if (clicks) {
-        clicks = clicks.replace(',', ' ')
+        clicks = clicks.replace(',', '.')
         var tmp = clicks
         var rx = /(\d+)(\d{3})/
         while (rx.test(tmp)) {
@@ -91,7 +91,7 @@ $(document).ready(function () {
         } else {
           ie = ie.split('.')[0]
         }
-        ie = ie.replace(',', ' ')
+        ie = ie.replace(',', '.')
         var tmp = ie
         var rx = /(\d+)(\d{3})/
         while (rx.test(tmp)) {
@@ -105,6 +105,7 @@ $(document).ready(function () {
         } else {
           cost = cost.split('.')[0]
         }
+        cost = cost.replace(',', '.')
       }
 
 
