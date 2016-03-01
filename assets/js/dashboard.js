@@ -91,15 +91,15 @@ $(document).ready(function () {
       }
       if (engagement) engagement = Math.round(100 * engagement) + '%'
       if (ie) {
-        ie = ie.replace(',', '.')
-        ie = ie.replace('.', ' ')
-        if (ie.substr(ie.length - 1) === '$') {
-          ie = ie.replace('$', '')
-        }
         if (ie[0] !== '$') {
           ie = '$' + ie.split('.')[0]
         } else {
           ie = ie.split('.')[0]
+        }
+        ie = ie.replace(',', '.')
+        ie = ie.replace('.', '')
+        if (ie.substr(ie.length - 1) === '$') {
+          ie = ie.replace('$', '')
         }
         var tmp = ie
         var rx = /(\d+)(\d{3})/
