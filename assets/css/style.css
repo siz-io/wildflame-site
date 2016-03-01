@@ -857,6 +857,12 @@ h3 {
 
 /* Mobile Devices */
 @media (max-width: 1065px) {
+  .sub-fat {
+    width: 60%;
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
   .arrows {
     display: none;
   }
