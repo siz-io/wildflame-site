@@ -164,6 +164,10 @@ section {
   width: 49%;
 }
 
+#mgb {
+  margin-bottom: 50px;
+}
+
 .icon {
   display: block;
   width: 60px;
@@ -372,7 +376,7 @@ p {
   padding-left: 13%;
   margin-bottom: 0;
   position: absolute;
-  margin-top: 56px;
+  margin-top: 26px;
   font-size: 20px;
 }
 
@@ -380,13 +384,13 @@ p {
   width: 35px;
   position: absolute;
   padding-left: 22.3%;
-  margin-top: 53px;
+  margin-top: 25px;
 }
 
 .arrow-text-right {
   margin-bottom: 0;
   position: absolute;
-  margin-top: 57px;
+  margin-top: 27px;
   font-size: 20px;
   float: right;
   right: 16%;
@@ -395,7 +399,7 @@ p {
 .arrow-icon-right {
   width: 35px;
   position: absolute;
-  margin-top: 51px;
+  margin-top: 21px;
   float: right;
   right: 22%;
 }
@@ -865,8 +869,51 @@ h3 {
     width: 60%;
   }
   
-  .arrows {
+  .wide-arrow, .arrow-text-left, .arrow-icon-left, .arrow-text-right, .arrow-icon-right {
     display: none;
+  }
+
+  .semi-arrow {
+    margin-left: 0;
+    width: 105%;
+  }
+
+  .semi-arrow:nth-child(1) {
+    margin-top: 50px;
+  }
+
+  .black-bold {
+    padding-left: 45px;
+  }
+
+  .red-bold {
+    padding-left: 45px;
+  }
+
+  .arrow-sub {
+    padding-left: 45px;
+  }
+
+  .mid-l ul, .mid ul, .mid-r ul {
+    margin-left: 0;
+    padding-left: 0;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  .mid-l ul li, .mid ul li, .mid-r ul li {
+    margin-bottom: 15px;
+  }
+
+
+  .mid-r ul {
+    margin-bottom: 100px;
+  }
+
+  .wf {
+    width: 55px;
+    margin-left: 23%;
+    margin-top: 16px;
   }
 
   header h1 {
