@@ -49,12 +49,14 @@ $(document).ready(function () {
         if (/[a-zA-Z0-9-_]+$/.test(embedKey) && embedKey.indexOf('/') > -1) {
           $('.embed').html('<div class="tumblr-post" data-href="https://embed.tumblr.com/embed/post/' + embedKey + '"></div><script async src="https://secure.assets.tumblr.com/post.js"></script>')
         }
+      } else {
+        $('.sidebox-tumblr').remove()
       }
-      if (!reach || /[a-zA-Z]/.test(reach)) $('#reach').parent().parent().remove()
-      if (!clicks || /[a-zA-Z]/.test(clicks)) $('#clicks').parent().parent().remove()
-      if (!engagement || /[a-zA-Z]/.test(engagement)) $('#engagement').parent().parent().remove()
-      if (!ie || /[a-zA-Z]/.test(ie)) $('#ie').parent().parent().remove()
-      if (!cost || /[a-zA-Z]/.test(cost)) $('#cost').parent().parent().remove()
+      if (!reach || /[a-zA-Z]/.test(reach) || reach.charAt(0) === "0") $('#reach').parent().parent().remove()
+      if (!clicks || /[a-zA-Z]/.test(clicks) || clicks.charAt(0) === "0") $('#clicks').parent().parent().remove()
+      if (!engagement || /[a-zA-Z]/.test(engagement) || engagement.charAt(0) === "0") $('#engagement').parent().parent().remove()
+      if (!ie || /[a-zA-Z]/.test(ie) || ie.charAt(0) === "0") $('#ie').parent().parent().remove()
+      if (!cost || /[a-zA-Z]/.test(cost) || cost.charAt(0) === "0") $('#cost').parent().parent().remove()
 
       if (!$('#reach').html() && !$('#clicks').html() && !$('#engagement').html() && !$('#ie').html() && !$('#cost').html()) {
         $('.dashboard').css('height', 'auto')
