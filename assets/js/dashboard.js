@@ -54,7 +54,7 @@ $(document).ready(function () {
       }
       if (!reach || /[a-zA-Z]/.test(reach) || reach.charAt(0) === "0") $('#reach').parent().parent().remove()
       if (!clicks || /[a-zA-Z]/.test(clicks) || clicks.charAt(0) === "0") $('#clicks').parent().parent().remove()
-      if (!engagement || /[a-zA-Z]/.test(engagement) || engagement.charAt(0) === "0") $('#engagement').parent().parent().remove()
+      if (!engagement || /[a-zA-Z]/.test(engagement)) $('#engagement').parent().parent().remove()
       if (!ie || /[a-zA-Z]/.test(ie) || ie.charAt(0) === "0") $('#ie').parent().parent().remove()
       if (!cost || /[a-zA-Z]/.test(cost) || cost.charAt(0) === "0") $('#cost').parent().parent().remove()
 
@@ -72,22 +72,31 @@ $(document).ready(function () {
       if (reach && reach !== 0) {
         reach = reach.replace(',', '.')
         reach = reach.replace('.', ' ')
-        var tmp = reach
+        var tmpR = reach
         var rx = /(\d+)(\d{3})/
-        while (rx.test(tmp)) {
-          tmp = tmp.replace(rx, '$1 $2')
+        if (tmpR.length >= 5) {
+          tmpR = tmpR.replace('.', ' ')
+          while (rx.test(tmpR)) {
+             tmpR = tmpR.replace(rx, '$1 $2')
+          }
+        } else {
+          tmpR = tmpR.split('.')[0]
         }
-        reach = tmp
+        reach = tmpR
       }
       if (clicks) {
         clicks = clicks.replace(',', '.')
-        clicks = clicks.replace('.', ' ')
-        var tmp = clicks
+        var tmpC = clicks
         var rx = /(\d+)(\d{3})/
-        while (rx.test(tmp)) {
-          tmp = tmp.replace(rx, '$1 $2')
+        if (tmpC.length >= 5) {
+          tmpC = tmpC.replace('.', ' ')
+          while (rx.test(tmpC)) {
+             tmpC = tmpC.replace(rx, '$1 $2')
+          }
+        } else {
+          tmpC = tmpC.split('.')[0]
         }
-        clicks = tmp
+        clicks = tmpC
       }
       if (engagement) engagement = Math.round(100 * engagement) + '%'
       if (ie) {
@@ -97,16 +106,20 @@ $(document).ready(function () {
           ie = ie.split('.')[0]
         }
         ie = ie.replace(',', '.')
-        ie = ie.replace('.', '')
         if (ie.substr(ie.length - 1) === '$') {
           ie = ie.replace('$', '')
         }
-        var tmp = ie
+        var tmpIE = ie
         var rx = /(\d+)(\d{3})/
-        while (rx.test(tmp)) {
-          tmp = tmp.replace(rx, '$1 $2')
+        if (tmpIE.length >= 5) {
+          tmpIE = tmpIE.replace('.', ' ')
+          while (rx.test(tmpIE)) {
+             tmpIE = tmpIE.replace(rx, '$1 $2')
+          }
+        } else {
+          tmpIE = tmpIE.split('.')[0]
         }
-        ie = tmp
+        ie = tmpIE
       }
       if (cost) {
         if (cost[0] !== '$') {
@@ -114,8 +127,21 @@ $(document).ready(function () {
         } else {
           cost = cost.split('.')[0]
         }
+        if (cost.length <= 5) {
+          cost = cost.replace('.', ' ')
+        }
         cost = cost.replace(',', '.')
-        cost = cost.replace('.', ' ')
+        var tmpCo = cost
+        var rx = /(\d+)(\d{3})/
+        if (tmpCo.length >= 5) {
+          tmpCo = tmpCo.replace('.', ' ')
+          while (rx.test(tmpCo)) {
+             tmpCo = tmpCo.replace(rx, '$1 $2')
+          }
+        } else {
+          tmpCo = tmpCo.split('.')[0]
+        }
+        cost = tmpCo
       }
 
       var i = 0
