@@ -215,7 +215,11 @@ p {
 
 .sub-fat {
   text-align: center;
+  width: 46%;
+  margin: auto;
+  padding-bottom: 1px;
   margin-bottom: 25px;
+  border-bottom: 1px solid #F72A4E;
 }
 
 .middle {
@@ -228,15 +232,72 @@ p {
   margin-bottom: 100px;
 }
 
-ul {
+.black-bold {
+  font-weight: 900;
+  color: #000;
+  text-align: left;
+  padding-left: 40px;
+  margin-bottom: 0;
+  position: absolute;
+  margin-top: 11px;
+  font-size: 19px;
+}
+
+.arrow-sub {
+  position: absolute;
+  padding-left: 40px;
+  text-align: left;
+  margin-top: 33px;
+}
+
+.red-bold {
+  font-weight: 900;
+  text-align: left;
+  padding-left: 40px;
+  margin-bottom: 0;
+  position: absolute;
+  margin-top: 12px;
+  font-size: 19px;
+  color: #F72A4E;
+}
+
+.mid-r .arrow-sub {
+  color: #F72A4E;
+}
+
+.wf {
+  position: absolute;
+  width: 70px;
+  margin-top: 1%;
+  float: right;
+  right: 16%;
+}
+
+.middle ul {
   padding-left: 0;
 }
 
-ul li {
+.middle ul li {
   text-align: center;
   list-style: none;
   font-size: 20px;
   margin-bottom: 15px;
+  font-weight: 300;
+}
+
+.mid-l ul, .mid ul, .mid-r ul {
+  margin-bottom: 80px;
+}
+
+.mid-l ul li, .mid ul li, .mid-r ul li {
+  list-style: none;
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.arrow-section {
+  vertical-align: top;
 }
 
 .grey {
@@ -307,39 +368,43 @@ ul li {
 }
 
 .arrow-text-left {
+  text-align: left;
+  padding-left: 13%;
+  margin-bottom: 0;
   position: absolute;
-  margin-top: -5.8%;
-  margin-left: 12.5%;
+  margin-top: 55px;
   font-size: 20px;
 }
 
 .arrow-icon-left {
   width: 35px;
   position: absolute;
-  margin-left: 22.3%;
-  margin-top: -6.1%;
+  padding-left: 22.3%;
+  margin-top: 53px;
 }
 
 .arrow-text-right {
+  margin-bottom: 0;
   position: absolute;
-  margin-top: -5.8%;
-  margin-left: 76.5%;
+  margin-top: 57px;
   font-size: 20px;
+  float: right;
+  right: 16%;
 }
 
 .arrow-icon-right {
   width: 35px;
   position: absolute;
-  margin-left: 72.8%;
-  margin-top: -6.3%;
+  margin-top: 51px;
+  float: right;
+  right: 22%;
 }
 
 .semi-arrow {
-  width: 320px;
-  height: 60px;
+  width: 90%;
+  height: 65px;
   margin: auto;
   margin-left: 25px;
-  margin-bottom: 80px;
 }
 
 .dark-text {
@@ -704,6 +769,47 @@ h3 {
   .use-content a, .use-content a {
     left: -14%;
   }
+
+  .mid-r .arrow-sub {
+    color: #F72A4E;
+  }
+
+  .wf {
+    width: 65px;
+    margin-top: 1.4%;
+    right: 15%;
+  }
+
+  .middle ul {
+    padding-left: 0;
+  }
+
+  .middle ul li {
+    text-align: center;
+    list-style: none;
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: 300;
+  }
+
+  .mid-l ul, .mid ul, .mid-r ul {
+    margin-bottom: 80px;
+  }
+
+  .mid-l ul li, .mid ul li, .mid-r ul li {
+    list-style: none;
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: 300;
+  }
+
+  .arrow-icon-left {
+    padding-left: 24%;
+  }
+
+  .arrow-icon-right {
+    right: 23%;
+  }
 }
 
 @media (max-width: 1150px) {
@@ -732,10 +838,29 @@ h3 {
   .use-content a, .use-content a {
     left: -12%;
   }
+
+  .arrow-icon-left {
+    padding-left: 25%;
+  }
+
+  .arrow-icon-right {
+    right: 24%;
+  }
+
+  .wf {
+    width: 50px;
+    margin-top: 1.8%;
+    right: 14%;
+  }
+
 }
 
 /* Mobile Devices */
 @media (max-width: 1065px) {
+  .arrows {
+    display: none;
+  }
+
   header h1 {
     font-size: 25px;
     line-height: 30px;
