@@ -879,14 +879,14 @@ h3 {
 
   .sub-fat {
     border-bottom: none;
-    text-decoration: underline;
   }
 }
 
 /* Mobile Devices */
 @media (max-width: 1065px) {
   .sub-fat {
-    width: 60%;
+    width: 100%;
+    font-size: 21px;
   }
   
   .wide-arrow, .arrow-text-left, .arrow-icon-left, .arrow-text-right, .arrow-icon-right {
