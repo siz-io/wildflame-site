@@ -875,23 +875,20 @@ h3 {
 
   .semi-arrow {
     margin-left: 0;
-    width: 105%;
+    width: 390px;
   }
 
   .semi-arrow:nth-child(1) {
     margin-top: 50px;
   }
 
-  .black-bold {
-    padding-left: 45px;
-  }
-
-  .red-bold {
-    padding-left: 45px;
+  .black-bold, .red-bold {
+    display: inline;
+    padding-left: 25px;
   }
 
   .arrow-sub {
-    padding-left: 45px;
+    padding-left: 25px;
   }
 
   .mid-l ul, .mid ul, .mid-r ul {
@@ -911,8 +908,9 @@ h3 {
   }
 
   .wf {
-    width: 55px;
-    margin-left: 23%;
+    width: 65px;
+    right: 33%;
+    padding-right: 10px;
     margin-top: 16px;
   }
 
@@ -1176,7 +1174,28 @@ h3 {
   }
 }
 
+@media (max-width: 850px) {
+  .wf {
+    right: 29%;
+  }
+}
 
+@media (max-width: 700px) {
+  .wf {
+    right: 24%;
+  }
+}
+
+@media (max-width: 600px) {
+  .semi-arrow {
+    margin-left: 0;
+    width: 105%;
+  }
+
+  .wf {
+    right: 14%;
+  }
+}
 
 
 
