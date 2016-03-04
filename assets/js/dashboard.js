@@ -57,7 +57,7 @@ $(document).ready(function () {
       if (!clicks || /[a-zA-Z]/.test(clicks) || clicks.charAt(0) === '0' || clicks === '0') $('#clicks').parent().parent().remove()
       if (!engagement || /[a-zA-Z]/.test(engagement) || engagement.charAt(0) == '0' || engagement === '0') $('#engagement').parent().parent().remove()
       if (!ie || /[a-zA-Z]/.test(ie) || ie.charAt(0) === '0' || ie === '0') $('#ie').parent().parent().remove()
-      if (!cost || /[a-zA-Z]/.test(cost) || cost.charAt(0) === '0' || cost === '0') $('#cost').parent().parent().remove()
+      if (!cost || /[a-zA-Z]/.test(cost) || cost.charAt(0) === '0' || cost === '0' || cost.charAt(1) === "0") $('#cost').parent().parent().remove()
 
       if (!$('#reach').html() && !$('#clicks').html() && !$('#engagement').html() && !$('#ie').html() && !$('#cost').html()) {
         $('.dashboard').css('height', 'auto')
