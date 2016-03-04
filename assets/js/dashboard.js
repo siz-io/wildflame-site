@@ -107,7 +107,12 @@ $(document).ready(function () {
           clicks = tmpC
         }
       }
-      if (engagement) engagement = Math.round(100 * engagement) + '%'
+      if (engagement) {
+        if (engagement.charAt(1) === ',') {
+          engagement = engagement.replace(',', '.')
+        }
+        engagement = Math.round(100 * engagement) + '%'
+      }
       if (ie) {
         if (ie.charAt(0) === '0') {
           ie = '$0'
