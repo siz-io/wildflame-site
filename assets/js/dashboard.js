@@ -17,6 +17,63 @@ function getParameterByName (name, url) {
   return decodeURIComponent(results[2].replace(/\+/g, ' '))
 }
 
+function formatMoney (value) {
+  if (value) {
+    if (value.charAt(0) === '0') {
+      value = '$0'
+    } else {
+      if (value.charAt(value.length - 1) === '$') {
+        value = value.split(value.charAt(value.length - 1))[0]
+      }
+      if (value[0] !== '$') {
+        value = '$' + value.split('.')[0]
+      } else {
+        value = value.split('.')[0]
+      }
+      value = value.replace(',', '.')
+      if (value.substr(value.length - 1) === '$') {
+        value = value.replace('$', '')
+      }
+      var rx = /(\d+)(\d{3})/
+      if (value.length >= 5) {
+        value = value.replace('.', ' ')
+        while (rx.test(value)) {
+           value = value.replace(rx, '$1 $2')
+        }
+      } else {
+        value = value.split('.')[0]
+      }
+      return value
+    }
+  }
+}
+
+function formatPercentage (value) {
+  if (value.charAt(1) === ',') {
+    value = value.replace(',', '.')
+  }
+  return Math.round(100 * value) + '%'
+}
+
+function formatThousands (value) {
+  if (value.charAt(0) === '0') {
+    value = '0'
+  } else {      
+    value = value.replace(',', '.')
+    value = value.replace('.', ' ')
+    var rx = /(\d+)(\d{3})/
+    if (value.length >= 5) {
+      value = value.replace('.', ' ')
+      while (rx.test(value)) {
+         value = value.replace(rx, '$1 $2')
+      }
+    } else {
+      value = value.split('.')[0]
+    }
+    return value
+  }
+}
+
 $(document).ready(function () {
   $('.dashboard-detail').hide()
   $('.dashboard').css('height', '280px')
@@ -71,105 +128,21 @@ $(document).ready(function () {
       }
 
       if (reach && reach !== 0) {
-        if (reach.charAt(0) === '0') {
-          reach = '0'
-        } else {      
-          reach = reach.replace(',', '.')
-          reach = reach.replace('.', ' ')
-          var tmpR = reach
-          var rx = /(\d+)(\d{3})/
-          if (tmpR.length >= 5) {
-            tmpR = tmpR.replace('.', ' ')
-            while (rx.test(tmpR)) {
-               tmpR = tmpR.replace(rx, '$1 $2')
-            }
-          } else {
-            tmpR = tmpR.split('.')[0]
-          }
-          reach = tmpR
-        }
+        reach = formatThousands(reach)  
       }
       if (clicks) {
-        if (clicks.charAt(0) === '0') {
-          clicks = '0'
-        } else {
-          clicks = clicks.replace(',', '.')
-          var tmpC = clicks
-          var rx = /(\d+)(\d{3})/
-          if (tmpC.length >= 5) {
-            tmpC = tmpC.replace('.', ' ')
-            while (rx.test(tmpC)) {
-               tmpC = tmpC.replace(rx, '$1 $2')
-            }
-          } else {
-            tmpC = tmpC.split('.')[0]
-          }
-          clicks = tmpC
-        }
+        clicks = formatThousands(clicks)  
       }
+
       if (engagement) {
-        if (engagement.charAt(1) === ',') {
-          engagement = engagement.replace(',', '.')
-        }
-        engagement = Math.round(100 * engagement) + '%'
+       engagement = formatPercentage(engagement)
       }
+      
       if (ie) {
-        if (ie.charAt(0) === '0') {
-          ie = '$0'
-        } else {
-          if (ie.charAt(ie.length - 1) === '$') {
-            ie = ie.split(ie.charAt(ie.length - 1))[0]
-          }
-          if (ie[0] !== '$') {
-            ie = '$' + ie.split('.')[0]
-          } else {
-            ie = ie.split('.')[0]
-          }
-          ie = ie.replace(',', '.')
-          if (ie.substr(ie.length - 1) === '$') {
-            ie = ie.replace('$', '')
-          }
-          var tmpIE = ie
-          var rx = /(\d+)(\d{3})/
-          if (tmpIE.length >= 5) {
-            tmpIE = tmpIE.replace('.', ' ')
-            while (rx.test(tmpIE)) {
-               tmpIE = tmpIE.replace(rx, '$1 $2')
-            }
-          } else {
-            tmpIE = tmpIE.split('.')[0]
-          }
-          ie = tmpIE
-        }
+        ie = formatMoney(ie)
       }
       if (cost) {
-        if (cost.charAt(0) === '0') {
-          cost = '$0'
-        } else {   
-          if (cost.charAt(cost.length - 1) === '$') {
-            cost = cost.split(cost.charAt(cost.length - 1))[0]
-          }
-          if (cost[0] !== '$') {
-            cost = '$' + cost.split('.')[0]
-          } else {
-            cost = cost.split('.')[0]
-          }
-          if (cost.length <= 5) {
-            cost = cost.replace('.', ' ')
-          }
-          cost = cost.replace(',', '.')
-          var tmpCo = cost
-          var rx = /(\d+)(\d{3})/
-          if (tmpCo.length >= 5) {
-            tmpCo = tmpCo.replace('.', ' ')
-            while (rx.test(tmpCo)) {
-               tmpCo = tmpCo.replace(rx, '$1 $2')
-            }
-          } else {
-            tmpCo = tmpCo.split('.')[0]
-          }
-          cost = tmpCo
-        }
+        cost = formatMoney(cost)
       }
 
       var i = 0
