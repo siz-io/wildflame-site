@@ -77,7 +77,7 @@ function formatThousands (value) {
 $(document).ready(function () {
   $('.dashboard-detail').hide()
   $('.dashboard').css('height', '280px')
-  $('.dashboard-section').last().css('border', 'none')
+  $('.dashboard-section').last().css('border', 'none !important')
   var dashboardID = getParameterByName('dashboard-id')
   var reportID = getParameterByName('report-id')
   var URL = 'https://spreadsheets.google.com/feeds/list/' + reportID + '/' + dashboardID + '/public/full?alt=json-in-script'
