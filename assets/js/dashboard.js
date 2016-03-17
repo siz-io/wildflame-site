@@ -238,7 +238,7 @@ $(document).ready(function () {
       }
 
       if ($('.dashboard-section').length === 3) {
-        $('.dashboard-section').css('width', '33%')
+        $('.dashboard-section').css('width', '33.1%')
         $('.dashboard-section').addClass('three')
       }
 
