@@ -3,8 +3,8 @@
 function getParameterByName (name, url) {
   if (!url) url = window.location.href
   name = name.replace(/[\[\]]/g, '\\$&')
-  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)')
-  var results = regex.exec(url)
+  const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)')
+  const results = regex.exec(url)
   if (!results) return null
   if (!results[2]) return ''
   return decodeURIComponent(results[2].replace(/\+/g, ' '))
@@ -156,7 +156,7 @@ function displayElements (data) {
 
       if (l > parseInt(tmpIe, 10)) {
         clearInterval(ieTimer)
-        ie = formatMoney(data.feed.entry[0].gsx$incomegenerated.$t)
+        const ie = formatMoney(data.feed.entry[0].gsx$incomegenerated.$t)
         $('#ie').html(ie)
       }
     }, 1)
@@ -193,7 +193,7 @@ function displayElements (data) {
 
       if (m > parseInt(tmpCost, 10)) {
         clearInterval(costTimer)
-        cost = formatMoney(data.feed.entry[0].gsx$cost.$t)
+        const cost = formatMoney(data.feed.entry[0].gsx$cost.$t)
         $('#cost').html(cost)
       }
     }, 1)
@@ -229,9 +229,9 @@ $(document).ready(function () {
   $('.dashboard-detail').hide()
   $('.dashboard').css('height', '280px')
   $('.dashboard-section').last().css('border', 'none !important')
-  var dashboardID = getParameterByName('dashboard-id')
-  var reportID = getParameterByName('report-id')
-  var URL = 'https://spreadsheets.google.com/feeds/list/' + reportID + '/' + dashboardID + '/public/full?alt=json-in-script'
+  const dashboardID = getParameterByName('dashboard-id')
+  const reportID = getParameterByName('report-id')
+  const URL = 'https://spreadsheets.google.com/feeds/list/' + reportID + '/' + dashboardID + '/public/full?alt=json-in-script'
 
   $.ajax({
     url: URL,
