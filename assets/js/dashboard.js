@@ -99,28 +99,11 @@ function displayElements (data) {
   $('.dashboard').css('height', 'auto')
   $('.dashboard-detail').show()
   if (!data.feed.entry) document.location = '/error'
-  if (data.feed.entry[0].gsx$posturl) var postURL = data.feed.entry[0].gsx$posturl.$t
-  if (data.feed.entry[0].gsx$embedkey) var embedKey = data.feed.entry[0].gsx$embedkey.$t
-  if (data.feed.entry[0].gsx$reach) var reach = data.feed.entry[0].gsx$reach.$t
-  if (data.feed.entry[0].gsx$clicks) var clicks = data.feed.entry[0].gsx$clicks.$t
-  if (data.feed.entry[0].gsx$incomegenerated) var ie = data.feed.entry[0].gsx$incomegenerated.$t
-  if (data.feed.entry[0].gsx$engagement) var engagement = data.feed.entry[0].gsx$engagement.$t
-  if (data.feed.entry[0].gsx$cost) var cost = data.feed.entry[0].gsx$cost.$t
-  var email = data.feed.author[0].email.$t.substr(-11)
-  if (email !== '@viewrz.com') document.location = '/error'
 
-  if (embedKey) {
-    if (/[a-zA-Z0-9-_]+$/.test(embedKey) && embedKey.indexOf('/') > -1) {
-      $('.embed').html('<div class="tumblr-post" data-href="https://embed.tumblr.com/embed/post/' + embedKey + '"></div><script async src="https://secure.assets.tumblr.com/post.js"></script>')
-    }
-  } else {
-    $('.sidebox-tumblr').remove()
-  }
-
-  if (reach) {
+  if (data.feed.entry[0].gsx$reach) {
     var i = 0
     var reachTimer = setInterval(function () {
-      var tmpReach = reach.replace(',', '')
+      const tmpReach = data.feed.entry[0].gsx$reach.$t.replace(',', '')
       if (parseInt(tmpReach, 10) <= 10) i++
       if (parseInt(tmpReach, 10) <= 100 && parseInt(tmpReach, 10) >= 10) i += 10
       if (parseInt(tmpReach, 10) <= 1000 && parseInt(tmpReach, 10) >= 100) i += 10
@@ -131,7 +114,7 @@ function displayElements (data) {
 
       if (i > parseInt(tmpReach, 10)) {
         clearInterval(reachTimer)
-        reach = formatThousands(reach)
+        const reach = formatThousands(data.feed.entry[0].gsx$reach.$t)
         $('#reach').html(reach)
       }
     }, 1)
@@ -139,10 +122,10 @@ function displayElements (data) {
     $('#reach').parent().parent().remove()
   }
 
-  if (clicks) {
+  if (data.feed.entry[0].gsx$clicks) {
     var j = 0
     var clicksTimer = setInterval(function () {
-      var tmpClicks = clicks.replace(',', '')
+      var tmpClicks = data.feed.entry[0].gsx$clicks.$t.replace(',', '')
       if (parseInt(tmpClicks, 10) <= 10) j++
       if (parseInt(tmpClicks, 10) <= 100 && parseInt(tmpClicks, 10) >= 10) j += 10
       if (parseInt(tmpClicks, 10) <= 1000 && parseInt(tmpClicks, 10) >= 100) j += 10
@@ -152,7 +135,7 @@ function displayElements (data) {
 
       if (j > parseInt(tmpClicks, 10)) {
         clearInterval(clicksTimer)
-        clicks = formatThousands(clicks)
+        const clicks = formatThousands(data.feed.entry[0].gsx$clicks.$t)
         $('#clicks').html(clicks)
       }
     }, 1)
@@ -160,8 +143,29 @@ function displayElements (data) {
     $('#clicks').parent().parent().remove()
   }
 
-  if (engagement) {
-    engagement = formatPercentage(engagement)
+  if (data.feed.entry[0].gsx$incomegenerated) {
+    var l = 0
+    var ieTimer = setInterval(function () {
+      var tmpIe = data.feed.entry[0].gsx$incomegenerated.$t.replace('$', '').replace(',', '').split('.')[0]
+      if (parseInt(tmpIe, 10) <= 10) l++
+      if (parseInt(tmpIe, 10) <= 100 && parseInt(tmpIe, 10) >= 10) l += 10
+      if (parseInt(tmpIe, 10) <= 1000 && parseInt(tmpIe, 10) >= 100) l += 10
+      if (parseInt(tmpIe, 10) <= 10000 && parseInt(tmpIe, 10) >= 1000) l += 100
+      if (parseInt(tmpIe, 10) <= 100000 && parseInt(tmpIe, 10) >= 10000) l += 200
+      $('#ie').html('$' + l)
+
+      if (l > parseInt(tmpIe, 10)) {
+        clearInterval(ieTimer)
+        ie = formatMoney(data.feed.entry[0].gsx$incomegenerated.$t)
+        $('#ie').html(ie)
+      }
+    }, 1)
+  } else {
+    $('#ie').parent().parent().remove()
+  }
+
+  if (data.feed.entry[0].gsx$engagement) {
+    const engagement = formatPercentage(data.feed.entry[0].gsx$engagement.$t)
     var k = 0
     var engagementTimer = setInterval(function () {
       var tmpEngagement = engagement.replace('%', '')
@@ -176,31 +180,10 @@ function displayElements (data) {
     $('#engagement').parent().parent().remove()
   }
 
-  if (ie) {
-    var l = 0
-    var ieTimer = setInterval(function () {
-      var tmpIe = ie.replace('$', '').replace(',', '').split('.')[0]
-      if (parseInt(tmpIe, 10) <= 10) l++
-      if (parseInt(tmpIe, 10) <= 100 && parseInt(tmpIe, 10) >= 10) l += 10
-      if (parseInt(tmpIe, 10) <= 1000 && parseInt(tmpIe, 10) >= 100) l += 10
-      if (parseInt(tmpIe, 10) <= 10000 && parseInt(tmpIe, 10) >= 1000) l += 100
-      if (parseInt(tmpIe, 10) <= 100000 && parseInt(tmpIe, 10) >= 10000) l += 200
-      $('#ie').html('$' + l)
-
-      if (l > parseInt(tmpIe, 10)) {
-        clearInterval(ieTimer)
-        ie = formatMoney(ie)
-        $('#ie').html(ie)
-      }
-    }, 1)
-  } else {
-    $('#ie').parent().parent().remove()
-  }
-
-  if (cost) {
+  if (data.feed.entry[0].gsx$cost) {
     var m = 0
     var costTimer = setInterval(function () {
-      var tmpCost = cost.replace('$', '').replace(',', '').split('.')[0]
+      var tmpCost = data.feed.entry[0].gsx$cost.$t.replace('$', '').replace(',', '').split('.')[0]
       if (parseInt(tmpCost, 10) <= 10) m++
       if (parseInt(tmpCost, 10) <= 100 && parseInt(tmpCost, 10) >= 10) m += 10
       if (parseInt(tmpCost, 10) <= 1000 && parseInt(tmpCost, 10) >= 100) m += 10
@@ -210,7 +193,7 @@ function displayElements (data) {
 
       if (m > parseInt(tmpCost, 10)) {
         clearInterval(costTimer)
-        cost = formatMoney(cost)
+        cost = formatMoney(data.feed.entry[0].gsx$cost.$t)
         $('#cost').html(cost)
       }
     }, 1)
@@ -218,16 +201,27 @@ function displayElements (data) {
     $('#cost').parent().parent().remove()
   }
 
-  if (!$('#reach').html() && !$('#clicks').html() && !$('#engagement').html() && !$('#ie').html() && !$('#cost').html()) {
-    $('.dashboard').css('height', 'auto')
-  }
+  const email = data.feed.author[0].email.$t.substr(-11)
+  if (email !== '@viewrz.com') document.location = '/error'
 
-  if (postURL) {
-    $('.dashboard-name').html(data.feed.title.$t + ' <a class="post-link" href="' + postURL + '" target="_blank">Post link</a>')
+  if (data.feed.entry[0].gsx$posturl.$t) {
+    $('.dashboard-name').html(data.feed.title.$t + ' <a class="post-link" href="' + data.feed.entry[0].gsx$posturl.$t + '" target="_blank">Post link</a>')
   } else {
     $('.dashboard-name').html(data.feed.title.$t)
     $('.dashboard-name').css('padding-left', '0')
   }
+  if (data.feed.entry[0].gsx$embedkey.$t) {
+    if (/[a-zA-Z0-9-_]+$/.test(data.feed.entry[0].gsx$embedkey.$t) && data.feed.entry[0].gsx$embedkey.$t.indexOf('/') > -1) {
+      $('.embed').html('<div class="tumblr-post" data-href="https://embed.tumblr.com/embed/post/' + data.feed.entry[0].gsx$embedkey.$t + '"></div><script async src="https://secure.assets.tumblr.com/post.js"></script>')
+    }
+  } else {
+    $('.sidebox-tumblr').remove()
+  }
+
+  if (!$('#reach').html() && !$('#clicks').html() && !$('#engagement').html() && !$('#ie').html() && !$('#cost').html()) {
+    $('.dashboard').css('height', 'auto')
+  }
+
   setDashboardElements(new Date(data.feed.entry[0].updated.$t).toString())
 }
 
