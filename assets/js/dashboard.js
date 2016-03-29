@@ -31,7 +31,7 @@ function formatMoney (value) {
       if (value.length >= 5) {
         value = value.replace('.', ' ')
         while (rx.test(value)) {
-           value = value.replace(rx, '$1 $2')
+          value = value.replace(rx, '$1 $2')
         }
       } else {
         value = value.split('.')[0]
@@ -51,14 +51,14 @@ function formatPercentage (value) {
 function formatThousands (value) {
   if (value.charAt(0) === '0') {
     value = '0'
-  } else {      
+  } else {
     value = value.replace(',', '.')
     value = value.replace('.', ' ')
     var rx = /(\d+)(\d{3})/
     if (value.length >= 5) {
       value = value.replace('.', ' ')
       while (rx.test(value)) {
-         value = value.replace(rx, '$1 $2')
+        value = value.replace(rx, '$1 $2')
       }
     } else {
       value = value.split('.')[0]
@@ -137,15 +137,15 @@ function displayElements (data) {
     var i = 0
     var reachTimer = setInterval(function () {
       var tmpReach = reach.replace(',', '')
-      if (parseInt(tmpReach) <= 10) i++
-      if (parseInt(tmpReach) <= 100 && parseInt(tmpReach) >= 10) i += 10
-      if (parseInt(tmpReach) <= 1000 && parseInt(tmpReach) >= 100) i += 10
-      if (parseInt(tmpReach) <= 10000 && parseInt(tmpReach) >= 1000) i += 100
-      if (parseInt(tmpReach) <= 100000 && parseInt(tmpReach) >= 10000) i += 200
-      if (parseInt(tmpReach) <= 1000000 && parseInt(tmpReach) >= 100000) i += 10000
+      if (parseInt(tmpReach, 10) <= 10) i++
+      if (parseInt(tmpReach, 10) <= 100 && parseInt(tmpReach, 10) >= 10) i += 10
+      if (parseInt(tmpReach, 10) <= 1000 && parseInt(tmpReach, 10) >= 100) i += 10
+      if (parseInt(tmpReach, 10) <= 10000 && parseInt(tmpReach, 10) >= 1000) i += 100
+      if (parseInt(tmpReach, 10) <= 100000 && parseInt(tmpReach, 10) >= 10000) i += 200
+      if (parseInt(tmpReach, 10) <= 1000000 && parseInt(tmpReach, 10) >= 100000) i += 10000
       $('#reach').html(i)
 
-      if (i > parseInt(tmpReach)) {
+      if (i > parseInt(tmpReach, 10)) {
         clearInterval(reachTimer)
         reach = formatThousands(reach)
         $('#reach').html(reach)
@@ -157,14 +157,14 @@ function displayElements (data) {
     var j = 0
     var clicksTimer = setInterval(function () {
       var tmpClicks = clicks.replace(',', '')
-      if (parseInt(tmpClicks) <= 10) j++
-      if (parseInt(tmpClicks) <= 100 && parseInt(tmpClicks) >= 10) j += 10
-      if (parseInt(tmpClicks) <= 1000 && parseInt(tmpClicks) >= 100) j += 10
-      if (parseInt(tmpClicks) <= 10000 && parseInt(tmpClicks) >= 1000) j += 100
-      if (parseInt(tmpClicks) <= 100000 && parseInt(tmpClicks) >= 10000) j += 200
+      if (parseInt(tmpClicks, 10) <= 10) j++
+      if (parseInt(tmpClicks, 10) <= 100 && parseInt(tmpClicks, 10) >= 10) j += 10
+      if (parseInt(tmpClicks, 10) <= 1000 && parseInt(tmpClicks, 10) >= 100) j += 10
+      if (parseInt(tmpClicks, 10) <= 10000 && parseInt(tmpClicks, 10) >= 1000) j += 100
+      if (parseInt(tmpClicks, 10) <= 100000 && parseInt(tmpClicks, 10) >= 10000) j += 200
       $('#clicks').html(j)
 
-      if (j > parseInt(tmpClicks)) {
+      if (j > parseInt(tmpClicks, 10)) {
         clearInterval(clicksTimer)
         clicks = formatThousands(clicks)
         $('#clicks').html(clicks)
@@ -179,25 +179,24 @@ function displayElements (data) {
       var tmpEngagement = engagement.replace('%', '')
       k++
       $('#engagement').html(k + '%')
-      if (k > parseInt(tmpEngagement)) {
+      if (k > parseInt(tmpEngagement, 10)) {
         clearInterval(engagementTimer)
         $('#engagement').html(engagement)
       }
     }, 30)
   }
-  
   if (ie) {
     var l = 0
     var ieTimer = setInterval(function () {
       var tmpIe = ie.replace('$', '').replace(',', '').split('.')[0]
-      if (parseInt(tmpIe) <= 10) l++
-      if (parseInt(tmpIe) <= 100 && parseInt(tmpIe) >= 10) l += 10
-      if (parseInt(tmpIe) <= 1000 && parseInt(tmpIe) >= 100) l += 10
-      if (parseInt(tmpIe) <= 10000 && parseInt(tmpIe) >= 1000) l += 100
-      if (parseInt(tmpIe) <= 100000 && parseInt(tmpIe) >= 10000) l += 200
+      if (parseInt(tmpIe, 10) <= 10) l++
+      if (parseInt(tmpIe, 10) <= 100 && parseInt(tmpIe, 10) >= 10) l += 10
+      if (parseInt(tmpIe, 10) <= 1000 && parseInt(tmpIe, 10) >= 100) l += 10
+      if (parseInt(tmpIe, 10) <= 10000 && parseInt(tmpIe, 10) >= 1000) l += 100
+      if (parseInt(tmpIe, 10) <= 100000 && parseInt(tmpIe, 10) >= 10000) l += 200
       $('#ie').html('$' + l)
 
-      if (l > parseInt(tmpIe)) {
+      if (l > parseInt(tmpIe, 10)) {
         clearInterval(ieTimer)
         ie = formatMoney(ie)
         $('#ie').html(ie)
@@ -209,14 +208,14 @@ function displayElements (data) {
     var m = 0
     var costTimer = setInterval(function () {
       var tmpCost = cost.replace('$', '').replace(',', '').split('.')[0]
-      if (parseInt(tmpCost) <= 10) m++
-      if (parseInt(tmpCost) <= 100 && parseInt(tmpCost) >= 10) m += 10
-      if (parseInt(tmpCost) <= 1000 && parseInt(tmpCost) >= 100) m += 10
-      if (parseInt(tmpCost) <= 10000 && parseInt(tmpCost) >= 1000) m += 100
-      if (parseInt(tmpCost) <= 100000 && parseInt(tmpCost) >= 10000) m += 200
+      if (parseInt(tmpCost, 10) <= 10) m++
+      if (parseInt(tmpCost, 10) <= 100 && parseInt(tmpCost, 10) >= 10) m += 10
+      if (parseInt(tmpCost, 10) <= 1000 && parseInt(tmpCost, 10) >= 100) m += 10
+      if (parseInt(tmpCost, 10) <= 10000 && parseInt(tmpCost, 10) >= 1000) m += 100
+      if (parseInt(tmpCost, 10) <= 100000 && parseInt(tmpCost, 10) >= 10000) m += 200
       $('#cost').html('$' + m)
 
-      if (m > parseInt(tmpCost)) {
+      if (m > parseInt(tmpCost, 10)) {
         clearInterval(costTimer)
         cost = formatMoney(cost)
         $('#cost').html(cost)
@@ -240,10 +239,10 @@ $(document).ready(function () {
     dataType: 'jsonp',
     jsonp: 'callback'
   })
-  .done(function (data) {
-    displayElements(data)
-  })
-  .fail(function () {
-    document.location = '/error'
-  })
+    .done(function (data) {
+      displayElements(data)
+    })
+    .fail(function () {
+      document.location = '/error'
+    })
 })
