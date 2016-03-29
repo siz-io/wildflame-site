@@ -228,7 +228,6 @@ function displayElements (data) {
     $('.dashboard-name').html(data.feed.title.$t)
     $('.dashboard-name').css('padding-left', '0')
   }
-
   setDashboardElements(new Date(data.feed.entry[0].updated.$t).toString())
 }
 
