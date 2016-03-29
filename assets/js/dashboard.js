@@ -108,29 +108,13 @@ function displayElements (data) {
   if (data.feed.entry[0].gsx$cost) var cost = data.feed.entry[0].gsx$cost.$t
   var email = data.feed.author[0].email.$t.substr(-11)
   if (email !== '@viewrz.com') document.location = '/error'
+
   if (embedKey) {
     if (/[a-zA-Z0-9-_]+$/.test(embedKey) && embedKey.indexOf('/') > -1) {
       $('.embed').html('<div class="tumblr-post" data-href="https://embed.tumblr.com/embed/post/' + embedKey + '"></div><script async src="https://secure.assets.tumblr.com/post.js"></script>')
     }
   } else {
     $('.sidebox-tumblr').remove()
-  }
-
-  if (!reach) $('#reach').parent().parent().remove()
-  if (!clicks) $('#clicks').parent().parent().remove()
-  if (!engagement) $('#engagement').parent().parent().remove()
-  if (!ie) $('#ie').parent().parent().remove()
-  if (!cost) $('#cost').parent().parent().remove()
-
-  if (!$('#reach').html() && !$('#clicks').html() && !$('#engagement').html() && !$('#ie').html() && !$('#cost').html()) {
-    $('.dashboard').css('height', 'auto')
-  }
-
-  if (postURL) {
-    $('.dashboard-name').html(data.feed.title.$t + ' <a class="post-link" href="' + postURL + '" target="_blank">Post link</a>')
-  } else {
-    $('.dashboard-name').html(data.feed.title.$t)
-    $('.dashboard-name').css('padding-left', '0')
   }
 
   if (reach) {
@@ -151,6 +135,8 @@ function displayElements (data) {
         $('#reach').html(reach)
       }
     }, 1)
+  } else {
+    $('#reach').parent().parent().remove()
   }
 
   if (clicks) {
@@ -170,6 +156,8 @@ function displayElements (data) {
         $('#clicks').html(clicks)
       }
     }, 1)
+  } else {
+    $('#clicks').parent().parent().remove()
   }
 
   if (engagement) {
@@ -184,7 +172,10 @@ function displayElements (data) {
         $('#engagement').html(engagement)
       }
     }, 30)
+  } else {
+    $('#engagement').parent().parent().remove()
   }
+
   if (ie) {
     var l = 0
     var ieTimer = setInterval(function () {
@@ -202,6 +193,8 @@ function displayElements (data) {
         $('#ie').html(ie)
       }
     }, 1)
+  } else {
+    $('#ie').parent().parent().remove()
   }
 
   if (cost) {
@@ -221,7 +214,21 @@ function displayElements (data) {
         $('#cost').html(cost)
       }
     }, 1)
+  } else {
+    $('#cost').parent().parent().remove()
   }
+
+  if (!$('#reach').html() && !$('#clicks').html() && !$('#engagement').html() && !$('#ie').html() && !$('#cost').html()) {
+    $('.dashboard').css('height', 'auto')
+  }
+
+  if (postURL) {
+    $('.dashboard-name').html(data.feed.title.$t + ' <a class="post-link" href="' + postURL + '" target="_blank">Post link</a>')
+  } else {
+    $('.dashboard-name').html(data.feed.title.$t)
+    $('.dashboard-name').css('padding-left', '0')
+  }
+
   setDashboardElements(new Date(data.feed.entry[0].updated.$t).toString())
 }
 
