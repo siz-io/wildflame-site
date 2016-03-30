@@ -11,31 +11,16 @@ function getParameterByName (name, url) {
 }
 
 function formatMoney (value) {
-  if (value) {
-    if (value.charAt(0) === '0') {
-      return '$0'
-    } else {
-      if (value.charAt(value.length - 1) === '$') {
-        return value.split(value.charAt(value.length - 1))[0]
-      }
-      if (value[0] !== '$') {
-        return '$' + value.split('.')[0].replace(',', ' ')
-      } else {
-        return value.split('.')[0]
-      }
-      value.replace(',', '.')
-      if (value.substr(value.length - 1) === '$') {
-        return value.replace('$', '')
-      }
-      var rx = /(\d+)(\d{3})/
-      if (value.length >= 5) {
-        while (rx.test(value)) {
-          return value.replace(rx, '$1 $2')
-        }
-      } else {
-        return value.split('.')[0]
-      }
-    }
+  if (value[0] === '0') return '$0'
+  if (/\$$/.test(value)) return value.split(value.charAt(value.length - 1))[0]
+  if (value[0] !== '$') return '$' + value.split('.')[0].replace(',', ' ')
+  else return value.split('.')[0]
+
+  if (value.length >= 5) {
+    var rx = /(\d+)(\d{3})/
+    while (rx.test(value)) return value.replace(rx, '$1 $2')
+  } else {
+    return value.split('.')[0]
   }
 }
 
@@ -45,44 +30,43 @@ function formatPercentage (value) {
 }
 
 function formatThousands (value) {
-  if (value.charAt(0) === '0') {
-    return '0'
-  } else {
+  if (value[0] === '0') return '0'
+
+  if (value.length >= 5) {
     var rx = /(\d+)(\d{3})/
-    if (value.length >= 5) {
-      while (rx.test(value)) {
-        return value.replace(rx, '$1 $2')
-      }
-    } else {
-      return value.split('.')[0]
-    }
-    return value.replace(',', '.').replace('.', ' ')
+    while (rx.test(value)) return value.replace(rx, '$1 $2')
+  } else {
+    return value.split('.')[0]
   }
+  return value.replace(',', '.').replace('.', ' ')
 }
 
 function setDashboardElements (date) {
-  if ($('.dashboard-section').length === 4) {
-    $('.dashboard-section').css('width', '24.2%')
-    $('.dashboard-section').addClass('four')
+  var settings = {
+    1: {
+      percentage: '101%',
+      className: 'one'
+    },
+    2: {
+      percentage: '49.2%',
+      className: 'two'
+    },
+    3: {
+      percentage: '33%',
+      className: 'three'
+    },
+    4: {
+      percentage: '24.2%',
+      className: 'four'
+    }
   }
 
-  if ($('.dashboard-section').length === 3) {
-    $('.dashboard-section').css('width', '33%')
-    $('.dashboard-section').addClass('three')
+  if (settings[$('.dashboard-section').length]) {
+    $('.dashboard-section').css('width', settings[$('.dashboard-section').length].percentage)
+    $('.dashboard-section').addClass(settings[$('.dashboard-section').length].className)
   }
 
-  if ($('.dashboard-section').length === 2) {
-    $('.dashboard-section').css('width', '49.2%')
-    $('.dashboard-section').addClass('two')
-  }
-
-  if ($('.dashboard-section').length === 1) {
-    $('.dashboard-section').css('width', '101%')
-    $('.dashboard-section').addClass('one')
-  }
-
-  date = date.split(':')[0] + ':' + date.split(':')[1]
-  $('.last-update').html('Last update: ' + date)
+  $('.last-update').html('Last update: ' + date.split(':')[0] + ':' + date.split(':')[1])
   $('.dashboard-name').show()
   $('.dashboard-detail').children().show()
 }
