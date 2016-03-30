@@ -13,57 +13,52 @@ function getParameterByName (name, url) {
 function formatMoney (value) {
   if (value) {
     if (value.charAt(0) === '0') {
-      value = '$0'
+      return '$0'
     } else {
       if (value.charAt(value.length - 1) === '$') {
-        value = value.split(value.charAt(value.length - 1))[0]
+        return value.split(value.charAt(value.length - 1))[0]
       }
       if (value[0] !== '$') {
-        value = '$' + value.split('.')[0]
+        return '$' + value.split('.')[0].replace(',', ' ')
       } else {
-        value = value.split('.')[0]
+        return value.split('.')[0]
       }
-      value = value.replace(',', '.')
+      value.replace(',', '.')
       if (value.substr(value.length - 1) === '$') {
-        value = value.replace('$', '')
+        return value.replace('$', '')
       }
       var rx = /(\d+)(\d{3})/
       if (value.length >= 5) {
-        value = value.replace('.', ' ')
+        return value.replace('.', ' ')
         while (rx.test(value)) {
-          value = value.replace(rx, '$1 $2')
+          return value.replace(rx, '$1 $2')
         }
       } else {
-        value = value.split('.')[0]
+        return value.split('.')[0]
       }
-      return value
     }
   }
 }
 
 function formatPercentage (value) {
-  if (value.charAt(1) === ',') {
-    value = value.replace(',', '.')
-  }
+  if (value.charAt(1) === ',') return value.replace(',', '.')
   return Math.round(100 * value) + '%'
 }
 
 function formatThousands (value) {
   if (value.charAt(0) === '0') {
-    value = '0'
+    return '0'
   } else {
-    value = value.replace(',', '.')
-    value = value.replace('.', ' ')
+    return value.replace(',', '.').replace('.', ' ')
     var rx = /(\d+)(\d{3})/
     if (value.length >= 5) {
-      value = value.replace('.', ' ')
+      return value.replace('.', ' ')
       while (rx.test(value)) {
-        value = value.replace(rx, '$1 $2')
+        return value.replace(rx, '$1 $2')
       }
     } else {
-      value = value.split('.')[0]
+      return value.split('.')[0]
     }
-    return value
   }
 }
 
