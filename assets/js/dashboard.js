@@ -29,7 +29,6 @@ function formatMoney (value) {
       }
       var rx = /(\d+)(\d{3})/
       if (value.length >= 5) {
-        return value.replace('.', ' ')
         while (rx.test(value)) {
           return value.replace(rx, '$1 $2')
         }
@@ -49,16 +48,15 @@ function formatThousands (value) {
   if (value.charAt(0) === '0') {
     return '0'
   } else {
-    return value.replace(',', '.').replace('.', ' ')
     var rx = /(\d+)(\d{3})/
     if (value.length >= 5) {
-      return value.replace('.', ' ')
       while (rx.test(value)) {
         return value.replace(rx, '$1 $2')
       }
     } else {
       return value.split('.')[0]
     }
+    return value.replace(',', '.').replace('.', ' ')
   }
 }
 
