@@ -87,6 +87,38 @@ function setDashboardElements (date) {
   $('.dashboard-detail').children().show()
 }
 
+function incrementValues (tag, data, duration) {
+  if (data) {
+    var i = 0
+    var result = /[\s|,|.|$|%]/g.exec(data)
+    var timer = setInterval(function () {
+      var tmp = data.replace(/[\s|,|.|$|%]/g, '')
+      if (tmp !== '0') {
+        if (parseInt(tmp, 10) <= 10) i++
+        if (parseInt(tmp, 10) <= 100 && parseInt(tmp, 10) >= 10) i += 10
+        if (parseInt(tmp, 10) <= 1000 && parseInt(tmp, 10) >= 100) i += 10
+        if (parseInt(tmp, 10) <= 10000 && parseInt(tmp, 10) >= 1000) i += 100
+        if (parseInt(tmp, 10) <= 100000 && parseInt(tmp, 10) >= 10000) i += 200
+        if (parseInt(tmp, 10) <= 1000000 && parseInt(tmp, 10) >= 100000) i += 10000
+        tag.html(i)
+
+        if (i > parseInt(tmp, 10)) {
+          clearInterval(timer)
+          tag.html(data)
+        }
+      } else {
+        clearInterval(timer)
+        if (result) {
+          if (result[0] === '$') tag.html('$0')
+          if (result[0] === '%') tag.html('0%')
+        } else {
+          tag.html('0')
+        }
+      }
+    }, duration)
+  }
+}
+
 function displayElements (data) {
   $('.sidebox').hide()
   $('.dashboard').css('height', 'auto')
@@ -94,122 +126,31 @@ function displayElements (data) {
   if (!data.feed.entry) document.location = '/error'
 
   if (data.feed.entry[0].gsx$reach) {
-    var i = 0
-    var reachTimer = setInterval(function () {
-      var tmpReach = data.feed.entry[0].gsx$reach.$t.replace(',', '')
-      if (tmpReach !== '0') {
-        if (parseInt(tmpReach, 10) <= 10) i++
-        if (parseInt(tmpReach, 10) <= 100 && parseInt(tmpReach, 10) >= 10) i += 10
-        if (parseInt(tmpReach, 10) <= 1000 && parseInt(tmpReach, 10) >= 100) i += 10
-        if (parseInt(tmpReach, 10) <= 10000 && parseInt(tmpReach, 10) >= 1000) i += 100
-        if (parseInt(tmpReach, 10) <= 100000 && parseInt(tmpReach, 10) >= 10000) i += 200
-        if (parseInt(tmpReach, 10) <= 1000000 && parseInt(tmpReach, 10) >= 100000) i += 10000
-        $('#reach').html(i)
-
-        if (i > parseInt(tmpReach, 10)) {
-          clearInterval(reachTimer)
-          var reach = formatThousands(data.feed.entry[0].gsx$reach.$t)
-          $('#reach').html(reach)
-        }
-      } else {
-        $('#reach').html('0')
-      }
-    }, 1)
+    incrementValues($('#reach'), formatThousands(data.feed.entry[0].gsx$reach.$t), 1)
   } else {
     $('#reach').parent().parent().remove()
   }
 
   if (data.feed.entry[0].gsx$clicks) {
-    var j = 0
-    var clicksTimer = setInterval(function () {
-      var tmpClicks = data.feed.entry[0].gsx$clicks.$t.replace(',', '')
-      if (tmpClicks !== '0') {
-        if (parseInt(tmpClicks, 10) <= 10) j++
-        if (parseInt(tmpClicks, 10) <= 100 && parseInt(tmpClicks, 10) >= 10) j += 10
-        if (parseInt(tmpClicks, 10) <= 1000 && parseInt(tmpClicks, 10) >= 100) j += 10
-        if (parseInt(tmpClicks, 10) <= 10000 && parseInt(tmpClicks, 10) >= 1000) j += 100
-        if (parseInt(tmpClicks, 10) <= 100000 && parseInt(tmpClicks, 10) >= 10000) j += 200
-        $('#clicks').html(j)
-
-        if (j > parseInt(tmpClicks, 10)) {
-          clearInterval(clicksTimer)
-          var clicks = formatThousands(data.feed.entry[0].gsx$clicks.$t)
-          $('#clicks').html(clicks)
-        }
-      } else {
-        $('#clicks').html('0')
-      }
-    }, 1)
+    incrementValues($('#clicks'), formatThousands(data.feed.entry[0].gsx$clicks.$t), 1)
   } else {
     $('#clicks').parent().parent().remove()
   }
 
   if (data.feed.entry[0].gsx$incomegenerated) {
-    var l = 0
-    var ieTimer = setInterval(function () {
-      var tmpIe = data.feed.entry[0].gsx$incomegenerated.$t.replace('$', '').replace(',', '').split('.')[0]
-      if (tmpIe !== '0') {
-        if (parseInt(tmpIe, 10) <= 10) l++
-        if (parseInt(tmpIe, 10) <= 100 && parseInt(tmpIe, 10) >= 10) l += 10
-        if (parseInt(tmpIe, 10) <= 1000 && parseInt(tmpIe, 10) >= 100) l += 10
-        if (parseInt(tmpIe, 10) <= 10000 && parseInt(tmpIe, 10) >= 1000) l += 100
-        if (parseInt(tmpIe, 10) <= 100000 && parseInt(tmpIe, 10) >= 10000) l += 200
-        $('#ie').html('$' + l)
-
-        if (l > parseInt(tmpIe, 10)) {
-          clearInterval(ieTimer)
-          var ie = formatMoney(data.feed.entry[0].gsx$incomegenerated.$t)
-          $('#ie').html(ie)
-        }
-      } else {
-        $('#ie').html('$0')
-      }
-    }, 1)
+    incrementValues($('#ie'), formatMoney(data.feed.entry[0].gsx$incomegenerated.$t), 1)
   } else {
     $('#ie').parent().parent().remove()
   }
 
   if (data.feed.entry[0].gsx$engagement) {
-    var engagement = formatPercentage(data.feed.entry[0].gsx$engagement.$t)
-    var k = 0
-    var engagementTimer = setInterval(function () {
-      var tmpEngagement = engagement.replace('%', '')
-      if (tmpEngagement !== '0') {
-        k++
-        $('#engagement').html(k + '%')
-        if (k > parseInt(tmpEngagement, 10)) {
-          clearInterval(engagementTimer)
-          $('#engagement').html(engagement)
-        }
-      } else {
-        $('#engagement').html('$' + l)
-      }
-    }, 30)
+    incrementValues($('#engagement'), formatPercentage(data.feed.entry[0].gsx$engagement.$t), 30)
   } else {
     $('#engagement').parent().parent().remove()
   }
 
   if (data.feed.entry[0].gsx$cost) {
-    var m = 0
-    var costTimer = setInterval(function () {
-      var tmpCost = data.feed.entry[0].gsx$cost.$t.replace('$', '').replace(',', '').split('.')[0]
-      if (tmpCost !== '0') {
-        if (parseInt(tmpCost, 10) <= 10) m++
-        if (parseInt(tmpCost, 10) <= 100 && parseInt(tmpCost, 10) >= 10) m += 10
-        if (parseInt(tmpCost, 10) <= 1000 && parseInt(tmpCost, 10) >= 100) m += 10
-        if (parseInt(tmpCost, 10) <= 10000 && parseInt(tmpCost, 10) >= 1000) m += 100
-        if (parseInt(tmpCost, 10) <= 100000 && parseInt(tmpCost, 10) >= 10000) m += 200
-        $('#cost').html('$' + m)
-
-        if (m > parseInt(tmpCost, 10)) {
-          clearInterval(costTimer)
-          var cost = formatMoney(data.feed.entry[0].gsx$cost.$t)
-          $('#cost').html(cost)
-        }
-      } else {
-        $('#cost').html('$0')
-      }
-    }, 1)
+    incrementValues($('#cost'), formatMoney(data.feed.entry[0].gsx$cost.$t), 1)
   } else {
     $('#cost').parent().parent().remove()
   }
