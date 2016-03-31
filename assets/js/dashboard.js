@@ -79,31 +79,31 @@ function displayElements (data) {
   if (!data.feed.entry) document.location = '/error'
 
   if (data.feed.entry[0].gsx$reach) {
-    incrementValues($('#reach'), formatThousands(data.feed.entry[0].gsx$reach.$t), 5)
+    incrementValues($('#reach'), formatThousands(data.feed.entry[0].gsx$reach.$t), 7)
   } else {
     $('#reach').parent().parent().remove()
   }
 
   if (data.feed.entry[0].gsx$clicks) {
-    incrementValues($('#clicks'), formatThousands(data.feed.entry[0].gsx$clicks.$t), 5)
+    incrementValues($('#clicks'), formatThousands(data.feed.entry[0].gsx$clicks.$t), 7)
   } else {
     $('#clicks').parent().parent().remove()
   }
 
   if (data.feed.entry[0].gsx$incomegenerated) {
-    incrementValues($('#ie'), formatMoney(data.feed.entry[0].gsx$incomegenerated.$t), 5)
+    incrementValues($('#ie'), formatMoney(data.feed.entry[0].gsx$incomegenerated.$t), 7)
   } else {
     $('#ie').parent().parent().remove()
   }
 
   if (data.feed.entry[0].gsx$engagement) {
-    incrementValues($('#engagement'), formatPercentage(data.feed.entry[0].gsx$engagement.$t), 5)
+    incrementValues($('#engagement'), formatPercentage(data.feed.entry[0].gsx$engagement.$t), 7)
   } else {
     $('#engagement').parent().parent().remove()
   }
 
   if (data.feed.entry[0].gsx$cost) {
-    incrementValues($('#cost'), formatMoney(data.feed.entry[0].gsx$cost.$t), 5)
+    incrementValues($('#cost'), formatMoney(data.feed.entry[0].gsx$cost.$t), 7)
   } else {
     $('#cost').parent().parent().remove()
   }
