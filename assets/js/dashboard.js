@@ -41,7 +41,7 @@ function formatThousands (value) {
 }
 
 function setDashboardElements (date) {
-  var settings = {1: {className: 'one'}, 2: {className: 'two'}, 3: { className: 'three'}, 4: {className: 'four'}}
+  var settings = {1: {className: 'one'}, 2: {className: 'two'}, 3: {className: 'three'}, 4: {className: 'four'}}
 
   if (settings[$('.dashboard-section').length]) {
     $('.dashboard-section').addClass(settings[$('.dashboard-section').length].className)
@@ -56,7 +56,6 @@ function incrementValues (tag, target, iterationNumber) {
   var tmp = target.replace(/[\s|,|.|$|%]/g, '')
   if (tmp !== '0') {
     var currentValue = 0
-
     var timer = setInterval(function () {
       currentValue += (parseInt(tmp, 10) / iterationNumber)
       tag.html(Math.round(currentValue))
@@ -100,7 +99,7 @@ function displayElements (data) {
     $('.dashboard-name').html(data.feed.title.$t)
     $('.dashboard-name').css('padding-left', '0')
   }
-  
+
   if (data.feed.entry[0].gsx$embedkey) {
     if (/[a-zA-Z0-9-_]+$/.test(data.feed.entry[0].gsx$embedkey.$t) && data.feed.entry[0].gsx$embedkey.$t.indexOf('/') > -1) {
       $('.embed').html('<div class="tumblr-post" data-href="https://embed.tumblr.com/embed/post/' + data.feed.entry[0].gsx$embedkey.$t + '"></div><script async src="https://secure.assets.tumblr.com/post.js"></script>')
