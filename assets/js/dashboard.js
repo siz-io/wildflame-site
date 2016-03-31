@@ -78,45 +78,29 @@ function displayElements (data) {
   $('.dashboard-detail').show()
   if (!data.feed.entry) document.location = '/error'
 
-  if (data.feed.entry[0].gsx$reach) {
-    incrementValues($('#reach'), formatThousands(data.feed.entry[0].gsx$reach.$t), 7)
-  } else {
-    $('#reach').parent().parent().remove()
-  }
+  if (data.feed.entry[0].gsx$reach) incrementValues($('#reach'), formatThousands(data.feed.entry[0].gsx$reach.$t), 7)
+  else $('#reach').parent().parent().remove()
 
-  if (data.feed.entry[0].gsx$clicks) {
-    incrementValues($('#clicks'), formatThousands(data.feed.entry[0].gsx$clicks.$t), 7)
-  } else {
-    $('#clicks').parent().parent().remove()
-  }
+  if (data.feed.entry[0].gsx$clicks) incrementValues($('#clicks'), formatThousands(data.feed.entry[0].gsx$clicks.$t), 7)
+  else $('#clicks').parent().parent().remove()
 
-  if (data.feed.entry[0].gsx$incomegenerated) {
-    incrementValues($('#ie'), formatMoney(data.feed.entry[0].gsx$incomegenerated.$t), 7)
-  } else {
-    $('#ie').parent().parent().remove()
-  }
+  if (data.feed.entry[0].gsx$incomegenerated) incrementValues($('#ie'), formatMoney(data.feed.entry[0].gsx$incomegenerated.$t), 7)
+  else $('#ie').parent().parent().remove()
 
-  if (data.feed.entry[0].gsx$engagement) {
-    incrementValues($('#engagement'), formatPercentage(data.feed.entry[0].gsx$engagement.$t), 7)
-  } else {
-    $('#engagement').parent().parent().remove()
-  }
+  if (data.feed.entry[0].gsx$engagement) incrementValues($('#engagement'), formatPercentage(data.feed.entry[0].gsx$engagement.$t), 7)
+  else $('#engagement').parent().parent().remove()
 
-  if (data.feed.entry[0].gsx$cost) {
-    incrementValues($('#cost'), formatMoney(data.feed.entry[0].gsx$cost.$t), 7)
-  } else {
-    $('#cost').parent().parent().remove()
-  }
+  if (data.feed.entry[0].gsx$cost) incrementValues($('#cost'), formatMoney(data.feed.entry[0].gsx$cost.$t), 7)
+  else $('#cost').parent().parent().remove()
 
-  var email = data.feed.author[0].email.$t.substr(-11)
-  if (email !== '@viewrz.com') document.location = '/error'
+  if (data.feed.author[0].email.$t.substr(-11) !== '@viewrz.com') document.location = '/error'
 
-  if (data.feed.entry[0].gsx$posturl) {
-    $('.dashboard-name').html(data.feed.title.$t + ' <a class="post-link" href="' + data.feed.entry[0].gsx$posturl.$t + '" target="_blank">Post link</a>')
-  } else {
+  if (data.feed.entry[0].gsx$posturl) $('.dashboard-name').html(data.feed.title.$t + ' <a class="post-link" href="' + data.feed.entry[0].gsx$posturl.$t + '" target="_blank">Post link</a>')
+  else {
     $('.dashboard-name').html(data.feed.title.$t)
     $('.dashboard-name').css('padding-left', '0')
   }
+  
   if (data.feed.entry[0].gsx$embedkey) {
     if (/[a-zA-Z0-9-_]+$/.test(data.feed.entry[0].gsx$embedkey.$t) && data.feed.entry[0].gsx$embedkey.$t.indexOf('/') > -1) {
       $('.embed').html('<div class="tumblr-post" data-href="https://embed.tumblr.com/embed/post/' + data.feed.entry[0].gsx$embedkey.$t + '"></div><script async src="https://secure.assets.tumblr.com/post.js"></script>')
