@@ -11,9 +11,9 @@ function getParameterByName (name, url) {
 }
 
 function formatMoney (value) {
-  if (value[0] === '0') return '$0'
+  if (value[0] === '0') return '0'
   if (/\$$/.test(value)) return value.split(value.charAt(value.length - 1))[0]
-  if (value[0] !== '$') return '$' + value.split('.')[0].replace(',', ' ')
+  if (value[0] !== '$') return value.split('.')[0].replace(',', ' ')
   else return value.split('.')[0]
 
   if (value.length >= 5) {
@@ -26,12 +26,11 @@ function formatMoney (value) {
 
 function formatPercentage (value) {
   if (value.charAt(1) === ',') return value.replace(',', '.')
-  return Math.round(100 * value) + '%'
+  return Math.round(100 * value).toString()
 }
 
 function formatThousands (value) {
   if (value[0] === '0') return '0'
-
   if (value.length >= 5) {
     var rx = /(\d+)(\d{3})/
     while (rx.test(value)) return value.replace(rx, '$1 $2')
@@ -74,7 +73,6 @@ function setDashboardElements (date) {
 function incrementValues (tag, data, duration) {
   if (data) {
     var i = 0
-    var result = /[\s|,|.|$|%]/g.exec(data)
     var timer = setInterval(function () {
       var tmp = data.replace(/[\s|,|.|$|%]/g, '')
       if (tmp !== '0') {
@@ -92,12 +90,7 @@ function incrementValues (tag, data, duration) {
         }
       } else {
         clearInterval(timer)
-        if (result) {
-          if (result[0] === '$') tag.html('$0')
-          if (result[0] === '%') tag.html('0%')
-        } else {
-          tag.html('0')
-        }
+        tag.html('0')
       }
     }, duration)
   }
