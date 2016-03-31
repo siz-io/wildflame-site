@@ -24,7 +24,7 @@ function formatPercentage (value) {
 }
 
 function formatThousands (value) {
-  if (value[0] === '0' && value[1] !== '') console.log(value.substring(value.length - 1))
+  if (value[0] === '0' && value[1] !== '') return value.substring(value.length - 1)
   if (value.length >= 5) {
     var rx = /(\d+)(\d{3})/
     while (rx.test(value)) return value.replace(rx, '$1 $2')
@@ -36,11 +36,9 @@ function formatThousands (value) {
 
 function setDashboardElements (date) {
   var settings = {1: {className: 'one'}, 2: {className: 'two'}, 3: {className: 'three'}, 4: {className: 'four'}}
-
   if (settings[$('.dashboard-section').length]) {
     $('.dashboard-section').addClass(settings[$('.dashboard-section').length].className)
   }
-
   $('.last-update').html('Last update: ' + date.split(':')[0] + ':' + date.split(':')[1])
   $('.dashboard-name').show()
   $('.dashboard-detail').children().show()
@@ -88,8 +86,9 @@ function displayElements (data) {
 
   if (data.feed.author[0].email.$t.substr(-11) !== '@viewrz.com') document.location = '/error'
 
-  if (data.feed.entry[0].gsx$posturl) $('.dashboard-name').html(data.feed.title.$t + ' <a class="post-link" href="' + data.feed.entry[0].gsx$posturl.$t + '" target="_blank">Post link</a>')
-  else {
+  if (data.feed.entry[0].gsx$posturl) {
+    $('.dashboard-name').html(data.feed.title.$t + ' <a class="post-link" href="' + data.feed.entry[0].gsx$posturl.$t + '" target="_blank">Post link</a>')
+  } else {
     $('.dashboard-name').html(data.feed.title.$t)
     $('.dashboard-name').css('padding-left', '0')
   }
@@ -105,7 +104,6 @@ function displayElements (data) {
   if (!$('#reach').html() && !$('#clicks').html() && !$('#engagement').html() && !$('#ie').html() && !$('#cost').html()) {
     $('.dashboard').css('height', 'auto')
   }
-
   setDashboardElements(new Date(data.feed.entry[0].updated.$t).toString())
 }
 
