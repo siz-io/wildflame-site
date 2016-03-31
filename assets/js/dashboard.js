@@ -11,7 +11,7 @@ function getParameterByName (name, url) {
 }
 
 function formatMoney (value) {
-  if (value[0] === '0' && value[1] !== '') return formatThousands(value.substring(value.length - 1))
+  if (value[0] === '0' && value[1] !== '') return formatThousands(value.substring(1))
   if (value[0] === '$') return formatThousands(value.split(value[0])[1].split('.')[0])
   if (/\$$/.test(value)) return formatThousands(value.split(value.charAt(value.length - 1))[0])
   if (value[0] !== '$') return formatThousands(value.split('.')[0].replace(',', ' '))
@@ -24,10 +24,9 @@ function formatPercentage (value) {
 }
 
 function formatThousands (value) {
-  if (value[0] === '0' && value[1] !== '') return value.substring(value.length - 1)
   if (value.length >= 5) {
     var rx = /(\d+)(\d{3})/
-    while (rx.test(value)) return value.replace(rx, '$1 $2')
+    while (rx.test(value)) return (value[0] === '0' && value[1] !== '') ? value.replace(rx, '$1 $2').substring(1) : value.replace(rx, '$1 $2')
   } else {
     return value.split('.')[0]
   }
