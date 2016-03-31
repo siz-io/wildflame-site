@@ -11,7 +11,7 @@ function getParameterByName (name, url) {
 }
 
 function formatMoney (value) {
-  if (value[0] === '0') return '0'
+  if (value[0] === '0' && value[1] !== '') return value.substring(value.length - 1)
   if (/\$$/.test(value)) return value.split(value.charAt(value.length - 1))[0]
   if (value[0] !== '$') return value.split('.')[0].replace(',', ' ')
   else return value.split('.')[0]
@@ -30,7 +30,7 @@ function formatPercentage (value) {
 }
 
 function formatThousands (value) {
-  if (value[0] === '0') return '0'
+  if (value[0] === '0' && value[1] !== '') console.log(value.substring(value.length - 1))
   if (value.length >= 5) {
     var rx = /(\d+)(\d{3})/
     while (rx.test(value)) return value.replace(rx, '$1 $2')
@@ -41,27 +41,9 @@ function formatThousands (value) {
 }
 
 function setDashboardElements (date) {
-  var settings = {
-    1: {
-      percentage: '101%',
-      className: 'one'
-    },
-    2: {
-      percentage: '49.2%',
-      className: 'two'
-    },
-    3: {
-      percentage: '33%',
-      className: 'three'
-    },
-    4: {
-      percentage: '24.2%',
-      className: 'four'
-    }
-  }
+  var settings = {1: {className: 'one'}, 2: {className: 'two'}, 3: { className: 'three'}, 4: {className: 'four'}}
 
   if (settings[$('.dashboard-section').length]) {
-    $('.dashboard-section').css('width', settings[$('.dashboard-section').length].percentage)
     $('.dashboard-section').addClass(settings[$('.dashboard-section').length].className)
   }
 
