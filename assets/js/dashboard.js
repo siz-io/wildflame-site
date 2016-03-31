@@ -70,29 +70,23 @@ function setDashboardElements (date) {
   $('.dashboard-detail').children().show()
 }
 
-function incrementValues (tag, data, duration) {
-  if (data) {
-    var i = 0
-    var timer = setInterval(function () {
-      var tmp = data.replace(/[\s|,|.|$|%]/g, '')
-      if (tmp !== '0') {
-        if (parseInt(tmp, 10) <= 10) i++
-        if (parseInt(tmp, 10) <= 100 && parseInt(tmp, 10) >= 10) i += 10
-        if (parseInt(tmp, 10) <= 1000 && parseInt(tmp, 10) >= 100) i += 10
-        if (parseInt(tmp, 10) <= 10000 && parseInt(tmp, 10) >= 1000) i += 100
-        if (parseInt(tmp, 10) <= 100000 && parseInt(tmp, 10) >= 10000) i += 200
-        if (parseInt(tmp, 10) <= 1000000 && parseInt(tmp, 10) >= 100000) i += 10000
-        tag.html(i)
+function incrementValues (tag, target, iterationNumber) {
+  var tmp = target.replace(/[\s|,|.|$|%]/g, '')
+  if (tmp !== '0') {
+    var currentValue = 0
 
-        if (i > parseInt(tmp, 10)) {
-          clearInterval(timer)
-          tag.html(data)
-        }
-      } else {
+    var timer = setInterval(function () {
+      currentValue += (parseInt(tmp, 10) / iterationNumber)
+      tag.html(Math.round(currentValue))
+
+      if (currentValue >= parseInt(tmp, 10)) {
         clearInterval(timer)
-        tag.html('0')
+        tag.html(target)
       }
-    }, duration)
+    }, 50, iterationNumber)
+  } else {
+    clearInterval(timer)
+    tag.html('0')
   }
 }
 
@@ -103,31 +97,31 @@ function displayElements (data) {
   if (!data.feed.entry) document.location = '/error'
 
   if (data.feed.entry[0].gsx$reach) {
-    incrementValues($('#reach'), formatThousands(data.feed.entry[0].gsx$reach.$t), 1)
+    incrementValues($('#reach'), formatThousands(data.feed.entry[0].gsx$reach.$t), 5)
   } else {
     $('#reach').parent().parent().remove()
   }
 
   if (data.feed.entry[0].gsx$clicks) {
-    incrementValues($('#clicks'), formatThousands(data.feed.entry[0].gsx$clicks.$t), 1)
+    incrementValues($('#clicks'), formatThousands(data.feed.entry[0].gsx$clicks.$t), 5)
   } else {
     $('#clicks').parent().parent().remove()
   }
 
   if (data.feed.entry[0].gsx$incomegenerated) {
-    incrementValues($('#ie'), formatMoney(data.feed.entry[0].gsx$incomegenerated.$t), 1)
+    incrementValues($('#ie'), formatMoney(data.feed.entry[0].gsx$incomegenerated.$t), 5)
   } else {
     $('#ie').parent().parent().remove()
   }
 
   if (data.feed.entry[0].gsx$engagement) {
-    incrementValues($('#engagement'), formatPercentage(data.feed.entry[0].gsx$engagement.$t), 30)
+    incrementValues($('#engagement'), formatPercentage(data.feed.entry[0].gsx$engagement.$t), 5)
   } else {
     $('#engagement').parent().parent().remove()
   }
 
   if (data.feed.entry[0].gsx$cost) {
-    incrementValues($('#cost'), formatMoney(data.feed.entry[0].gsx$cost.$t), 1)
+    incrementValues($('#cost'), formatMoney(data.feed.entry[0].gsx$cost.$t), 5)
   } else {
     $('#cost').parent().parent().remove()
   }
