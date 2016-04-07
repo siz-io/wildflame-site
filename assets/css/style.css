@@ -17,7 +17,7 @@ header {
   background-repeat: no-repeat;
   background-position: center 40%;
   box-shadow: 0 1px 1px rgba(50, 50, 50, 0.2);
-  height: 150px;
+  height: 120px;
 }
 
 header .app-download {
@@ -74,7 +74,10 @@ strong {
 #baseline-sub {
   color: #000;
   font-weight: 300;
+  margin: auto;
+  margin-top: 40px;
   margin-bottom: 90px;
+  text-align: center;
 }
 
 h2 {
@@ -359,7 +362,44 @@ p {
   text-align: left;
 }
 
+.big-arrow {
+  margin-left: 225px;
+  margin-top: 75px;
+  position:  absolute;
+}
+
+.wf-big {
+  position: absolute;
+  width: 40px;
+  top: 123%;
+  left: 48.2%;
+}
+
+.arrow-circle {
+  position: absolute;
+  width: 95px;
+  top: 116%;
+  left: 46.3%;
+}
+
+.thin-left {
+  max-width: 940px;
+  color: #000;
+  font-weight: 300;
+  font-size: 19px;
+  position: absolute;
+  margin-top: -145px;
+  text-align: left;
+}
+
 .dark-right {
+  margin-bottom: 40px;
+  margin-top: 20px;
+  color: #595959;
+  text-align: right;
+}
+
+.thin-right {
   margin-bottom: 40px;
   margin-top: 20px;
   color: #595959;
@@ -564,9 +604,35 @@ p {
   font-weight: 900;
 }
 
+.hashtag {
+  font-size: 16px;
+  display: inline-block;
+  font-weight: 300;
+  font-size: 17px;
+  color: #F72A4E;
+  position: absolute;
+  margin-top: 15px;
+  margin-left: 30px;
+}
+
 .icon-left {
   width: 40px;
   margin: 0;
+}
+
+.mid-l .vinyle {
+  display: inline-block;
+  height: 80px;
+  margin-bottom: 170px;
+}
+
+.dashed-circle {
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  border: 1px dashed #F72A4E;
+  border-radius: 100%;
+  margin-top: -50px;
 }
 
 .icon-mid {
