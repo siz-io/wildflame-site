@@ -426,14 +426,14 @@ p {
 .wf-big {
   position: absolute;
   width: 40px;
-  top: 63.6%;
+  top: 62.6%;
   left: 49%;
 }
 
 .arrow-circle {
   position: absolute;
   width: 95px;
-  top: 60%;
+  top: 59%;
   left: 47.1%;
 }
 
@@ -677,7 +677,7 @@ p {
 .mid-l .vinyle {
   display: inline-block;
   height: 80px;
-  margin-bottom: 200px;
+  margin-bottom: 202px;
 }
 
 .dashed-circle {
@@ -764,6 +764,50 @@ h3 {
   font-weight: 900;
   font-size: 22px;
   line-height: 40px;
+}
+
+.relay {
+  position: absolute;
+}
+
+.relay1 {
+  margin-top: 30px;
+  margin-left: 115px;
+}
+
+.relay2 {
+  margin-top: 60px;
+  margin-left: 185px;
+}
+
+.relay3 {
+  margin-top: 116px;
+  margin-left: 200px;
+}
+
+.relay4 {
+  margin-top: 180px;
+  margin-left: 180px;
+}
+
+.relay5 {
+  margin-top: 200px;
+  margin-left: 115px;
+}
+
+.relay6 {
+  margin-top: 180px;
+  margin-left: 45px;
+}
+
+.relay7 {
+  margin-top: 117px;
+  margin-left: 20px;
+}
+
+.relay8 {
+  margin-top: 60px;
+  margin-left: 35px;
 }
 
 .black-text {
