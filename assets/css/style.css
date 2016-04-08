@@ -106,6 +106,10 @@ td, th {
   padding-left: 10px;
 }
 
+.col-bold {
+  font-weight: 400;
+}
+
 #baseline {
   margin-top: 40px;
 }
