@@ -67,10 +67,16 @@ strong {
   color: #000;
 }
 
+.table-content {
+  position: absolute;
+  margin-top: -300px;
+}
+
 table {
   border-collapse: collapse;
   width: 400px;
-  height: 200px;
+  height: 250px;
+  margin-left: 70px;
 }
 
 th {
@@ -82,12 +88,22 @@ th {
 td, th {
   border: 1px solid black;
   text-align: right;
-  padding-right: 5px;
+  font-weight: 300;
+  padding-right: 10px;
+}
+
+.table-title {
+  color: #000;
+  font-weight: 300;
+  text-align: left;
+  margin-bottom: 20px;
+  margin-top: 0;
+  margin-left: 70px;
 }
 
 .col-left {
   text-align: left;
-  padding-left: 5px;
+  padding-left: 10px;
 }
 
 #baseline {
@@ -395,14 +411,14 @@ p {
 .wf-big {
   position: absolute;
   width: 40px;
-  top: 62.5%;
+  top: 63.6%;
   left: 49%;
 }
 
 .arrow-circle {
   position: absolute;
   width: 95px;
-  top: 59%;
+  top: 60%;
   left: 47.1%;
 }
 
