@@ -67,6 +67,29 @@ strong {
   color: #000;
 }
 
+table {
+  border-collapse: collapse;
+  width: 400px;
+  height: 200px;
+}
+
+th {
+  font-weight: 300;
+  font-size: 17px;
+  color: #F72A4E;
+}
+
+td, th {
+  border: 1px solid black;
+  text-align: right;
+  padding-right: 5px;
+}
+
+.col-left {
+  text-align: left;
+  padding-left: 5px;
+}
+
 #baseline {
   margin-top: 40px;
 }
@@ -606,7 +629,6 @@ p {
 }
 
 .hashtag {
-  font-size: 16px;
   display: inline-block;
   font-weight: 300;
   font-size: 17px;
