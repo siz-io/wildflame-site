@@ -103,7 +103,16 @@ td, th {
 
 .separator {
   color: #F72A4E;
+  font-style: italic;
   margin-bottom: 10px;
+  font-weight: 900;
+}
+
+.black-separator {
+  color: #000;
+  font-style: italic;
+  margin-bottom: 10px;
+  font-weight: 900;
 }
 
 .col-left {
@@ -239,6 +248,11 @@ section {
   width: 49%;
 }
 
+.dashed {
+  border-right: 1px dashed #F72A4E;
+  margin-bottom: 90px;
+}
+
 .mid-l, .mid, .mid-r {
   display: inline-block;
   width: 33%;
@@ -288,6 +302,12 @@ p {
   margin-bottom: 100px;
 }
 
+.centered {
+  text-align: center;
+  padding-top: 30px;
+  font-size: 24px;
+}
+
 .black-bold {
   font-weight: 900;
   color: #000;
@@ -297,6 +317,99 @@ p {
   position: absolute;
   margin-top: 11px;
   font-size: 19px;
+}
+
+.black-bold-l {
+  display: inline-block;
+  font-weight: 900;
+  color: #000;
+  text-align: left;
+  margin-bottom: 0;
+  font-size: 19px;
+}
+
+.black-bold-mid {
+  display: inline-block;
+  font-weight: 900;
+  color: #000;
+  text-align: left;
+  margin-bottom: 0;
+  font-size: 19px;
+  text-align: center;
+  width: 82%;
+}
+
+.black-bold-r {
+  display: inline-block;
+  font-weight: 900;
+  color: #000;
+  text-align: left;
+  margin-bottom: 0;
+  font-size: 19px;
+  padding-left: 23px;
+  text-align: right;
+}
+
+
+.description-content {
+  width: 91%;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.description-l {
+  font-size: 19px;
+  display: inline-block;
+  color: #000;
+  text-align: left;
+  position: relative;
+  vertical-align: top;
+  padding-right: 30px;
+  font-weight: 300;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 19px;
+  display: inline-block;
+  color: #000;
+  text-align: center;
+  position: relative;
+  vertical-align: top;
+  font-weight: 300;
+  padding-right: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.description-r {
+  font-size: 19px;
+  display: inline-block;
+  color: #000;
+  text-align: right;
+  position: relative;
+  vertical-align: top;
+  font-weight: 300;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.directional-arrows {
+  display: block;
+  width: 275px;
+  margin: auto;
+  margin-top: -60px;
+}
+
+.big-black-bold {
+  font-weight: 900;
+  color: #000;
+  text-align: left;
+  padding-left: 35px;
+  position: absolute;
+  margin-top: 11px;
+  font-size: 22px;
 }
 
 .arrow-sub {
