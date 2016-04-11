@@ -351,11 +351,32 @@ p {
   text-align: right;
 }
 
+.arrowText {
+  margin-top: -230px;
+}
 
 .description-content {
   width: 91%;
   margin: auto;
   margin-top: 30px;
+}
+
+.dark-white {
+  font-weight: 300;
+  padding: 5px;
+  background-color: #FFF;
+  color: #000;
+  margin: auto;
+  width: 35%;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.long-arrow {
+  display: block;
+  width: 10%;
+  margin: auto;
+  margin-top: -10px;
 }
 
 .description-content .big-arrow {
