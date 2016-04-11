@@ -113,6 +113,7 @@ td, th {
   font-style: italic;
   margin-bottom: 10px;
   font-weight: 900;
+  text-align: center;
 }
 
 .col-left {
@@ -355,6 +356,15 @@ p {
   width: 91%;
   margin: auto;
   margin-top: 30px;
+}
+
+.description-content .big-arrow {
+  margin-left: 605px;
+  margin-top: -268px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #FFF;
+  height: 55px;
 }
 
 .description-l {
