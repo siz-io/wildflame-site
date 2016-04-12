@@ -832,19 +832,19 @@ p {
 
 .big-icon {
   display: block;
-  width: 140px;
+  width: 130px;
   margin: 0 auto;
 }
 
 .mega-icon {
   display: block;
-  width: 190px;
+  width: 180px;
   margin: 0 auto;
 }
 
 .upper.big-icon {
   display: block;
-  font-size: 130px;
+  font-size: 120px;
   font-weight: 300;
   text-align: center;
 }
