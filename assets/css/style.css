@@ -86,7 +86,7 @@ th {
 }
 
 td, th {
-  border: 1px solid black;
+  border: 1px dashed black;
   text-align: right;
   font-weight: 300;
   padding-right: 10px;
@@ -123,6 +123,48 @@ td, th {
 
 .col-bold {
   font-weight: 400;
+}
+
+.solid-top-l {
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+}
+
+.solid-top {
+  border-top: 1px solid #000;
+}
+
+.solid-left {
+  border-left: 1px solid #000;
+}
+
+.solid-right {
+  border-right: 1px solid #000;
+}
+
+.solid-top-bottom {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.solid-top-bottom-r {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+}
+
+.solid-bottom {
+  border-bottom: 1px solid #000;
+}
+
+.solid-bottom-l {
+  border-left: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.solid-bottom-r {
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
 }
 
 #baseline {
@@ -823,6 +865,7 @@ p {
   position: absolute;
   margin-top: 15px;
   margin-left: 30px;
+  font-style: italic;
 }
 
 .icon-left {
@@ -943,6 +986,8 @@ h3 {
 
 .relays {
   margin-top: 10px;
+  font-style: italic;
+  font-weight: 300;
 }
 
 .relay {
@@ -1251,6 +1296,94 @@ h3 {
 
 /* Mobile Devices */
 @media (max-width: 1065px) {
+  .separator-dash {
+    display: none;
+  }
+
+  .black-text {
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 90px;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .black-text:nth-child(1) {
+    margin-right: 0;
+  }
+
+  #baseline-sub {
+    margin-bottom: 40px;
+  }
+
+  .middle {
+    width: 100%;
+  }
+
+  .vinyle {
+    margin-left: -290px;
+  }
+
+  .dashed-circle {
+    margin-left: 0;
+    margin: auto;
+  }
+
+  .relays {
+    position: absolute;
+  }
+
+  .thin-left {
+    position: inherit;
+    text-align: left;
+    width: 370px;
+    margin: auto;
+    margin-top: -200px;
+    margin-bottom: 30px;
+  }
+
+  .big-arrow, .big-arrow-right {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    margin: 0;
+    margin-top: 10px;
+    position: inherit;
+  }
+
+  .table-content {
+    margin-top: 0;
+    position: inherit;
+    margin-left: 0;
+    margin: auto;
+  }
+
+  .table-title {
+    text-align: center;
+    margin-left: 0;
+    margin-top: 30px;
+  }
+
+  table {
+    margin-left: 0;
+    margin: auto;
+  }
+
+  .wf-big {
+    position: absolute;
+    width: 40px;
+    top: 94.5%;
+    left: 48.1%;
+  }
+
+  .arrow-circle {
+    position: absolute;
+    width: 95px;
+    top: 91%;
+    left: 45.3%;
+  }
+
   .sub-fat {
     width: 100%;
     font-size: 21px;
@@ -1353,7 +1486,7 @@ h3 {
   }
 
   .subtitle.small {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .box {
