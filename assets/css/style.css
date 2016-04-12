@@ -26,12 +26,12 @@ header .app-download {
   top: 10px
 }
 
-.app-download {
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  display: inline-block
-} 
+.mega {
+  text-align: right;
+  display: block;
+  font-size: 45px;
+  font-weight: 300;
+}
 
 header .logo {
   display: inline-block;
@@ -570,14 +570,14 @@ p {
 .wf-big {
   position: absolute;
   width: 40px;
-  top: 62.6%;
+  top: 63.6%;
   left: 49%;
 }
 
 .arrow-circle {
   position: absolute;
   width: 95px;
-  top: 59%;
+  top: 60%;
   left: 47.1%;
 }
 
@@ -596,6 +596,18 @@ p {
   margin-top: 20px;
   color: #595959;
   text-align: right;
+}
+
+.upper-lower {
+  color: #F72A4E;
+  font-weight: 900;
+}
+
+.dark-middle {
+  margin-bottom: 100px;
+  margin-top: 20px;
+  color: #595959;
+  text-align: center;
 }
 
 .thin-right {
@@ -818,6 +830,25 @@ p {
   margin: 0;
 }
 
+.big-icon {
+  display: block;
+  width: 140px;
+  margin: 0 auto;
+}
+
+.mega-icon {
+  display: block;
+  width: 190px;
+  margin: 0 auto;
+}
+
+.upper.big-icon {
+  display: block;
+  font-size: 130px;
+  font-weight: 300;
+  text-align: center;
+}
+
 .mid-l .vinyle {
   display: inline-block;
   height: 80px;
@@ -908,6 +939,10 @@ h3 {
   font-weight: 900;
   font-size: 22px;
   line-height: 40px;
+}
+
+.relays {
+  margin-top: 10px;
 }
 
 .relay {
