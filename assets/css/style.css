@@ -1241,6 +1241,11 @@ h3 {
   .arrow-icon-right {
     right: 23%;
   }
+
+  .left {
+    display: inline-table;
+  }
+
 }
 
 @media (max-width: 1150px) {
