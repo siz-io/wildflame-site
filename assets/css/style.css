@@ -1756,7 +1756,7 @@ h3 {
 @media (max-width: 500px) {
   .wf-big {
     top: 94.4%;
-    left: 46.1%;
+    left: 45.8%;
   }
   .wf-icon {
     right: 26%;
@@ -1767,6 +1767,10 @@ h3 {
     right: 22%;
     margin-top: 7.8%;
     font-size: 12px;
+  }
+
+  table {
+    width: 310px;
   }
 }
 
