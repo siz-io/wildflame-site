@@ -604,7 +604,7 @@ p {
 }
 
 .big-arrow {
-  margin-left: 295px;
+  margin-left: 20%;
   margin-top: 75px;
   position:  absolute;
 }
@@ -900,8 +900,8 @@ p {
 }
 
 .dashed-circle {
-  width: 270px;
-  height: 270px;
+  width: 271px;
+  height: 271px;
   margin: auto;
   border: 1px dashed #F72A4E;
   border-radius: 100%;
@@ -1172,6 +1172,11 @@ h3 {
     margin-left: 30px;
   }
 
+  .arrow-circle {
+    top: 50%;
+    left: 46.2%;
+  }
+
   .table-title {
     margin-left: 7%;
   }
@@ -1309,8 +1314,17 @@ h3 {
     left: -12%;
   }
 
-  .vinyle, .thin-left {
+  .vinyle {
     margin-left: -40px;
+  }
+
+  .arrow-circle {
+    top: 51%;
+    left: 45.1%;
+  }
+
+  .hashtag {
+    margin-left: 15px;
   }
 
   .arrow-icon-left {
@@ -1322,7 +1336,7 @@ h3 {
   }
 
   .big-arrow {
-    margin-left: 225px;
+    margin-left: 16%;
   }
 
   .big-arrow-right {
