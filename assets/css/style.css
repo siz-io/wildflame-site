@@ -1777,6 +1777,9 @@ h3 {
 }
 
 @media (max-width: 700px) {
+  #baseline-sub {
+    max-width: 360px !important;
+  }
   .wf-icon {
     right: 32%;
     margin-top: 2.6%;
