@@ -1365,7 +1365,7 @@ h3 {
     width: 80%;
     margin: auto;
     margin-top: 10px;
-    margin-bottom: 90px;
+    margin-bottom: 40px;
     text-align: center;
     margin-left: 0;
     padding-left: 10%;
@@ -1385,7 +1385,7 @@ h3 {
   }
 
   .vinyle {
-    margin-left: -290px;
+    margin-left: -290px !important;
   }
 
   .dashed-circle {
@@ -1396,6 +1396,10 @@ h3 {
   .relays {
     position: absolute;
     margin-top: -180px;
+  }
+
+  .upper.big-icon {
+    margin-top: -30px;
   }
 
   .thin-left {
@@ -1512,7 +1516,8 @@ h3 {
   }
 
   #baseline-sub {
-    font-size: 17px;
+    font-size: 18px;
+    margin-top: 20px;
   }
 
   h2 {
@@ -1803,6 +1808,24 @@ h3 {
 }
 
 @media (max-width: 500px) {
+  .vinyle, .hashtag {
+    display: block;
+    margin: 0 auto !important;
+  }
+
+  .vinyle {
+    margin-top: 0;
+    margin-bottom: 20px !important;
+  }
+
+  .hashtag {
+    position: inherit;
+  }
+
+  .thin-left {
+    margin-top: 20px;
+  }
+
   .wf-icon {
     right: 26%;
     margin-top: 3%;
@@ -1822,7 +1845,11 @@ h3 {
 @media (max-width: 400px) {
   table {
     width: 310px;
-    margin-left: -25px;
+    margin-left: -15px;
+  }
+
+  .spaced-bold {
+    line-height: 0;
   }
 
   .wf-icon {
