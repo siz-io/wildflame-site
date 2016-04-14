@@ -98,7 +98,7 @@ td, th {
   text-align: left;
   margin-bottom: 20px;
   margin-top: 0;
-  margin-left: 70px;
+  margin-left: 0;
 }
 
 .separator {
@@ -128,6 +128,11 @@ td, th {
 .solid-top-l {
   border-top: 1px solid #000;
   border-left: 1px solid #000;
+}
+
+.solid-top-r {
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
 }
 
 .solid-top {
@@ -599,7 +604,7 @@ p {
 }
 
 .big-arrow {
-  margin-left: 225px;
+  margin-left: 275px;
   margin-top: 75px;
   position:  absolute;
 }
@@ -1170,6 +1175,11 @@ h3 {
 
   table {
     width: 370px;
+    margin-left: 30px;
+  }
+
+  .table-title {
+    margin-left: 7%;
   }
 
   .reach {
@@ -1184,6 +1194,14 @@ h3 {
     font-size: 110px;
     margin-right: 3%;
     margin-bottom: 0;
+  }
+
+  .big-arrow {
+    margin-left: 235px;
+  }
+
+  .big-arrow-right {
+    margin-left: -40px;
   }
 
   .black-text {
@@ -1262,7 +1280,7 @@ h3 {
 
 }
 
-@media (max-width: 1170px) {
+@media (max-width: 1230px) {
   .left .l .fat.white, .right .l .fat.white, .left .l .fat-sub, .right .l .fat-sub { 
     margin-left: 25%;
   }
@@ -1281,6 +1299,10 @@ h3 {
     width: 320px;
   }
 
+  .wf-big {
+    left: 47.4%;
+  }
+
   .use-content .picture {
     width: 380px;
   }
@@ -1289,8 +1311,16 @@ h3 {
     width: 350px;
   }
 
+  .dashed-circle {
+    margin-left: 15px;
+  }
+  
   .use-content a, .use-content a {
     left: -12%;
+  }
+
+  .vinyle, .thin-left {
+    margin-left: -40px;
   }
 
   .arrow-icon-left {
@@ -1299,6 +1329,14 @@ h3 {
 
   .arrow-icon-right {
     right: 24%;
+  }
+
+  .big-arrow {
+    margin-left: 225px;
+  }
+
+  .big-arrow-right {
+    margin-left: -25px;
   }
 
   .wf-icon {
@@ -1317,8 +1355,8 @@ h3 {
   }
 }
 
-/* Mobile Devices */
-@media (max-width: 1065px) {
+/* Small Desktop Screens */
+@media (max-width: 1110px) {
   .black-text {
     width: 100%;
     margin: auto;
@@ -1394,8 +1432,8 @@ h3 {
   .wf-big {
     position: absolute;
     width: 40px;
-    top: 94.3%;
-    left: 47.7%;
+    top: 94.2%;
+    left: 48.2%;
   }
 
   .arrow-circle {
@@ -1718,6 +1756,16 @@ h3 {
   #contact a {
     font-size: 27px;
     margin-bottom: 60px;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 1065px) {
+  .wf-big {
+    position: absolute;
+    width: 40px;
+    top: 94.3%;
+    left: 47.7%;
   }
 }
 
