@@ -1361,6 +1361,10 @@ h3 {
 
 /* Small Desktop Screens */
 @media (max-width: 1110px) {
+
+  header {
+    height: 100px;
+  }
   .black-text {
     width: 80%;
     margin: auto;
