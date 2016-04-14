@@ -76,7 +76,7 @@ table {
   border-collapse: collapse;
   width: 400px;
   height: 250px;
-  margin-left: 0;
+  margin-left: 20px;
 }
 
 th {
@@ -98,7 +98,7 @@ td, th {
   text-align: left;
   margin-bottom: 20px;
   margin-top: 0;
-  margin-left: 0;
+  margin-left: 20px;
 }
 
 .separator {
@@ -604,29 +604,22 @@ p {
 }
 
 .big-arrow {
-  margin-left: 275px;
+  margin-left: 295px;
   margin-top: 75px;
   position:  absolute;
 }
 
 .big-arrow-right {
-  margin-left: -70px;
+  margin-left: -50px;
   margin-top: 135px;
   position:  absolute;
-}
-
-.wf-big {
-  position: absolute;
-  width: 40px;
-  top: 63.6%;
-  left: 46.9%;
 }
 
 .arrow-circle {
   position: absolute;
   width: 95px;
-  top: 60%;
-  left: 44.9%;
+  margin-top: 5.6%;
+  left: 46.7%;
 }
 
 .thin-left {
@@ -636,6 +629,7 @@ p {
   font-size: 19px;
   position: absolute;
   margin-top: -175px;
+  margin-left: 20px;
   text-align: left;
 }
 
@@ -902,13 +896,13 @@ p {
   display: inline-block;
   height: 80px;
   margin-bottom: 202px;
+  margin-left: 20px;
 }
 
 .dashed-circle {
   width: 270px;
   height: 270px;
   margin: auto;
-  margin-left: 40px;
   border: 1px dashed #F72A4E;
   border-radius: 100%;
   margin-top: -50px;
@@ -1201,7 +1195,7 @@ h3 {
   }
 
   .big-arrow-right {
-    margin-left: -40px;
+    margin-left: -31px;
   }
 
   .black-text {
@@ -1299,10 +1293,6 @@ h3 {
     width: 320px;
   }
 
-  .wf-big {
-    left: 47.4%;
-  }
-
   .use-content .picture {
     width: 380px;
   }
@@ -1358,12 +1348,14 @@ h3 {
 /* Small Desktop Screens */
 @media (max-width: 1110px) {
   .black-text {
-    width: 100%;
+    width: 80%;
     margin: auto;
     margin-top: 10px;
     margin-bottom: 90px;
     text-align: center;
     margin-left: 0;
+    padding-left: 10%;
+    padding-right: 10%;
   }
 
   .black-text:nth-child(1) {
@@ -1427,13 +1419,6 @@ h3 {
   table {
     margin-left: 0;
     margin: auto;
-  }
-
-  .wf-big {
-    position: absolute;
-    width: 40px;
-    top: 94.2%;
-    left: 48.2%;
   }
 
   .arrow-circle {
@@ -1759,21 +1744,7 @@ h3 {
   }
 }
 
-/* Mobile Devices */
-@media (max-width: 1065px) {
-  .wf-big {
-    position: absolute;
-    width: 40px;
-    top: 94.3%;
-    left: 47.7%;
-  }
-}
-
 @media (max-width: 850px) {
-  .wf-big {
-    top: 94.3%;
-    left: 47.4%;
-  }
   .wf-icon {
     right: 35.4%;
     margin-top: 1.9%;
@@ -1800,10 +1771,6 @@ h3 {
 }
 
 @media (max-width: 600px) {
-  .wf-big {
-    top: 94.4%;
-    left: 46.7%;
-  }
   .semi-arrow {
     margin-left: 0;
     width: 105%;
@@ -1822,10 +1789,6 @@ h3 {
 }
 
 @media (max-width: 500px) {
-  .wf-big {
-    top: 94.4%;
-    left: 45.8%;
-  }
   .wf-icon {
     right: 26%;
     margin-top: 3%;
@@ -1848,11 +1811,6 @@ h3 {
     margin-left: -25px;
   }
 
-  .wf-big {
-    top: 97.2%;
-    left: 45.2%;
-    width: 38px;
-  }
   .wf-icon {
     right: 25.8%;
     margin-top: 4.1%;
