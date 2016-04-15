@@ -1845,16 +1845,14 @@ h3 {
   }
 
   table {
-    width: 310px;
+    font-size: 14px;
+    width: 300px;
+    margin: 0 auto;
+    margin-left: 0;
   }
 }
 
 @media (max-width: 400px) {
-  table {
-    width: 310px;
-    margin-left: -15px;
-  }
-
   .spaced-bold {
     line-height: 0;
   }
