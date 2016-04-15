@@ -1414,7 +1414,7 @@ h3 {
     margin: auto;
     margin-top: -200px;
     margin-bottom: 30px;
-    margin-left: 0;
+    margin-left: -8px;
   }
 
   .big-arrow, .big-arrow-right {
@@ -1785,9 +1785,19 @@ h3 {
     margin-top: 4.5%;
     font-size: 12px;
   }
+
+  .black-text {
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
 }
 
 @media (max-width: 700px) {
+  .subtitle.small {
+    font-size: 17px;  
+  }
+  
   #baseline-sub {
     max-width: 360px !important;
   }
@@ -1839,6 +1849,7 @@ h3 {
   .thin-left {
     margin-top: -210px;
     margin-bottom: 185px;
+    margin-left: -9px;
   }
 
   .wf-icon {
