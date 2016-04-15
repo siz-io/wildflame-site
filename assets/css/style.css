@@ -1821,7 +1821,7 @@ h3 {
   }
 
   .vinyle {
-    margin-top: 0;
+    margin-top: 60px !important;
     margin-bottom: 20px !important;
   }
 
@@ -1830,7 +1830,8 @@ h3 {
   }
 
   .thin-left {
-    margin-top: 20px;
+    margin-top: -210px;
+    margin-bottom: 210px;
   }
 
   .wf-icon {
