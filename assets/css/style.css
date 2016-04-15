@@ -1395,6 +1395,7 @@ h3 {
   .dashed-circle {
     margin-left: 0;
     margin: auto;
+    margin-top: -17px;
   }
 
   .relays {
@@ -1423,6 +1424,12 @@ h3 {
     margin: 0;
     margin-top: 10px;
     position: inherit;
+  }
+
+
+  .big-arrow-right {
+    margin-top: -20px;
+    margin-bottom: -14px;
   }
 
   .table-content {
@@ -1831,7 +1838,7 @@ h3 {
 
   .thin-left {
     margin-top: -210px;
-    margin-bottom: 210px;
+    margin-bottom: 185px;
   }
 
   .wf-icon {
