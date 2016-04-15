@@ -185,14 +185,6 @@ h2 {
   text-align: center;
 }
 
-.left .l .fat.white, .right .l .fat.white, .left .l .fat-sub, .right .l .fat-sub {
-  margin-left: 80px;
-}
-
-.left .r .fat.white, .right .r .fat.white, .left .r .fat-sub, .right .r .fat-sub {
-  margin-left: -80px;
-}
-
 p {
   font-weight: 400;
   font-size: 20px;
@@ -273,7 +265,6 @@ section {
   width: 60px;
 }
 
-
 .l, .r {
   display: inline-block;
   width: 49%;
@@ -289,11 +280,6 @@ section {
   width: 33%;
   margin: auto;
   margin-bottom: 40px;
-}
-
-.five-l, .five-mid-l, .five-mid, .five-mid-r, .five-r {
-  display: inline-block;
-  width: 19%;
 }
 
 h2 {
@@ -769,7 +755,6 @@ h3 {
   .left {
     display: inline-table;
   }
-
 }
 
 @media (max-width: 1230px) {
@@ -991,15 +976,6 @@ h3 {
     margin-top: -33px;
   }
 
-  .grey .cesar-sub {
-    width: auto;
-    padding-left: 8%;
-    margin-top: 15px;
-    margin-left: 0;
-    margin-bottom: 40px;
-    text-align: center;
-  }
-
   .icon-left {
     display: block;
     width: 60px;
@@ -1146,17 +1122,6 @@ h3 {
     margin-top: -210px;
     margin-bottom: 185px;
     margin-left: -9px;
-  }
-
-  .wf-icon {
-    right: 26%;
-    margin-top: 3%;
-  }
-
-  .wf-text {
-    right: 22%;
-    margin-top: 7.8%;
-    font-size: 12px;
   }
 
   table {
